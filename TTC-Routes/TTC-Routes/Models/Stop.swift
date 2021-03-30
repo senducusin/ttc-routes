@@ -8,7 +8,7 @@
 import Foundation
 
 struct StopResponse: Codable {
-    var time: Int
+    var time: Double
     var stops: [Stop]
     var uri : String
     var name :String

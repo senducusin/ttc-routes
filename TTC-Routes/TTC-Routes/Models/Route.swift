@@ -18,5 +18,5 @@ struct StopTime:Codable {
     var serviceId: Int
     var shape: String
     var departureTime: String
-    var departureTimestamp: Int
+    var departureTimestamp: Double
 }

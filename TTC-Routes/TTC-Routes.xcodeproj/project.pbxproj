@@ -19,6 +19,9 @@
 		A6AA1A2D2613006200B5B722 /* StopListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA1A2C2613006200B5B722 /* StopListTableViewCell.swift */; };
 		A6AA1A312613014100B5B722 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA1A302613014100B5B722 /* UIView+Extensions.swift */; };
 		A6AA1A342613040E00B5B722 /* StopListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA1A332613040E00B5B722 /* StopListCellViewModel.swift */; };
+		A6AA1A38261309F900B5B722 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA1A37261309F900B5B722 /* Date+Extensions.swift */; };
+		A6AA1A3C26130B6B00B5B722 /* UINavigationItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA1A3B26130B6B00B5B722 /* UINavigationItem+Extensions.swift */; };
+		A6AA1A3F2613335900B5B722 /* RouteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA1A3E2613335900B5B722 /* RouteListController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		A6AA1A2C2613006200B5B722 /* StopListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopListTableViewCell.swift; sourceTree = "<group>"; };
 		A6AA1A302613014100B5B722 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		A6AA1A332613040E00B5B722 /* StopListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopListCellViewModel.swift; sourceTree = "<group>"; };
+		A6AA1A37261309F900B5B722 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		A6AA1A3B26130B6B00B5B722 /* UINavigationItem+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Extensions.swift"; sourceTree = "<group>"; };
+		A6AA1A3E2613335900B5B722 /* RouteListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				A6AA1A112612CF8000B5B722 /* StopListController.swift */,
+				A6AA1A3E2613335900B5B722 /* RouteListController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -112,6 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				A6AA1A302613014100B5B722 /* UIView+Extensions.swift */,
+				A6AA1A37261309F900B5B722 /* Date+Extensions.swift */,
+				A6AA1A3B26130B6B00B5B722 /* UINavigationItem+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -202,7 +211,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6AA1A3C26130B6B00B5B722 /* UINavigationItem+Extensions.swift in Sources */,
 				A6AA19FA2612CE4E00B5B722 /* AppDelegate.swift in Sources */,
+				A6AA1A38261309F900B5B722 /* Date+Extensions.swift in Sources */,
 				A6AA1A122612CF8000B5B722 /* StopListController.swift in Sources */,
 				A6AA1A192612CFD800B5B722 /* WebService.swift in Sources */,
 				A6AA1A312613014100B5B722 /* UIView+Extensions.swift in Sources */,
@@ -210,6 +221,7 @@
 				A6AA1A1D2612D15800B5B722 /* Route.swift in Sources */,
 				A6AA19FC2612CE4E00B5B722 /* SceneDelegate.swift in Sources */,
 				A6AA1A202612D19900B5B722 /* Stop.swift in Sources */,
+				A6AA1A3F2613335900B5B722 /* RouteListController.swift in Sources */,
 				A6AA1A342613040E00B5B722 /* StopListCellViewModel.swift in Sources */,
 				A6AA1A282612D68C00B5B722 /* StopListViewModel.swift in Sources */,
 			);

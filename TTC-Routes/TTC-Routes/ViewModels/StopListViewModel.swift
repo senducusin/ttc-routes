@@ -8,7 +8,7 @@
 import Foundation
 
 struct StopListViewModel{
-    var time: Int
+    var time: Double
     var stops: [Stop]
     var name: String
 }
@@ -27,6 +27,13 @@ extension StopListViewModel {
     }
     
     func sectionTitle(_ index:Int) -> String {
+        
+        let stopName = stops[index].name
+        if stopName.hasPrefix(self.name) {
+            let newName = stopName.replacingOccurrences(of: "\(name) ", with: "")
+            return newName
+        }
+        
         return stops[index].name
     }
     

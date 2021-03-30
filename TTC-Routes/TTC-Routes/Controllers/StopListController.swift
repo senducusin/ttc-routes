@@ -18,6 +18,8 @@ class StopListController: UITableViewController {
         super.viewDidLoad()
         
         self.tableView.register(StopListTableViewCell.self, forCellReuseIdentifier: StopListTableViewCell.cellIdentifier)
+        self.tableView.rowHeight = 70
+        self.tableView.tableFooterView = UIView()
         
         if let resource = StopResponse.all() {
             WebService().load(resource: resource) { result in
@@ -27,6 +29,7 @@ class StopListController: UITableViewController {
                     
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
+                        self.navigationItem.setTitle(stopResponse.name, subtitle: Date.unixTimestampToDateStr(stopResponse.time, format: .date))
                     }
                 
                 case .failure(let error):

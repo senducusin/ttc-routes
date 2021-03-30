@@ -11,14 +11,36 @@ struct StopListCellViewModel {
     var route: Route?
     
     var routeName: String {
-        return route?.name ?? "No Bus Available"
+        return route?.name ?? ""
     }
     
-    var routeNameFont: UIFont {
-        return route == nil ? UIFont.italicSystemFont(ofSize: 14) : UIFont.systemFont(ofSize: 14)
+    var routePropertyIsHidden: Bool {
+        return route == nil ? true : false
     }
     
-    var routeFontColor: UIColor{
-        return route == nil ? UIColor.lightGray : UIColor.black
+    var noBusIsHidden: Bool {
+        return route == nil ? false : true
+    }
+    
+    func departureTimeColor(stop:StopTime) -> UIColor{
+        return (stop.departureTimestamp - Date().timeIntervalSince1970) >= 600 ? UIColor.darkGray : UIColor.red
+    }
+    
+    var nextStop: StopTime? {
+
+        guard var stops = route?.stopTimes else {
+            return nil
+        }
+        
+        stops = stops.sorted(by:{ $0.departureTimestamp < $1.departureTimestamp})
+        
+        for stop in stops {
+           
+            if stop.departureTimestamp >= Date().timeIntervalSince1970 {
+                return stop
+            }
+        }
+        
+        return nil
     }
 }
