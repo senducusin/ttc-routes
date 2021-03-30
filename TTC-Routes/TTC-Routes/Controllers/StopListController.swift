@@ -17,7 +17,7 @@ class StopListController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.register(StopListTableViewCell.self, forCellReuseIdentifier: StopListTableViewCell.cellIdentifier)
         
         if let resource = StopResponse.all() {
             WebService().load(resource: resource) { result in
@@ -68,17 +68,9 @@ extension StopListController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: StopListTableViewCell.cellIdentifier, for: indexPath) as! StopListTableViewCell
         
-        if let viewModel = self.viewModel {
-            guard let name = viewModel.routeAtIndexPath(indexPath)?.name else {
-                cell.textLabel?.text = "No Bus Available"
-                return cell
-            }
-            cell.textLabel?.text = name
-        }
-            
-            
+        cell.route = self.viewModel?.routeAtIndexPath(indexPath)
         
         return cell
     }

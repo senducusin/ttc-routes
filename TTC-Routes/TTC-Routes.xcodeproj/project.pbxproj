@@ -16,6 +16,8 @@
 		A6AA1A1D2612D15800B5B722 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA1A1C2612D15800B5B722 /* Route.swift */; };
 		A6AA1A202612D19900B5B722 /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA1A1F2612D19900B5B722 /* Stop.swift */; };
 		A6AA1A282612D68C00B5B722 /* StopListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA1A272612D68C00B5B722 /* StopListViewModel.swift */; };
+		A6AA1A2D2613006200B5B722 /* StopListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA1A2C2613006200B5B722 /* StopListTableViewCell.swift */; };
+		A6AA1A312613014100B5B722 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA1A302613014100B5B722 /* UIView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		A6AA1A1C2612D15800B5B722 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		A6AA1A1F2612D19900B5B722 /* Stop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
 		A6AA1A272612D68C00B5B722 /* StopListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopListViewModel.swift; sourceTree = "<group>"; };
+		A6AA1A2C2613006200B5B722 /* StopListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopListTableViewCell.swift; sourceTree = "<group>"; };
+		A6AA1A302613014100B5B722 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,7 @@
 		A6AA19F82612CE4E00B5B722 /* TTC-Routes */ = {
 			isa = PBXGroup;
 			children = (
+				A6AA1A2B2613005000B5B722 /* Views */,
 				A6AA1A262612D68000B5B722 /* ViewModels */,
 				A6AA1A172612CFCE00B5B722 /* Extensions */,
 				A6AA1A162612CFC600B5B722 /* Services */,
@@ -104,6 +109,7 @@
 		A6AA1A172612CFCE00B5B722 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A6AA1A302613014100B5B722 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -114,6 +120,14 @@
 				A6AA1A272612D68C00B5B722 /* StopListViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A6AA1A2B2613005000B5B722 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A6AA1A2C2613006200B5B722 /* StopListTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +202,8 @@
 				A6AA19FA2612CE4E00B5B722 /* AppDelegate.swift in Sources */,
 				A6AA1A122612CF8000B5B722 /* StopListController.swift in Sources */,
 				A6AA1A192612CFD800B5B722 /* WebService.swift in Sources */,
+				A6AA1A312613014100B5B722 /* UIView+Extensions.swift in Sources */,
+				A6AA1A2D2613006200B5B722 /* StopListTableViewCell.swift in Sources */,
 				A6AA1A1D2612D15800B5B722 /* Route.swift in Sources */,
 				A6AA19FC2612CE4E00B5B722 /* SceneDelegate.swift in Sources */,
 				A6AA1A202612D19900B5B722 /* Stop.swift in Sources */,
