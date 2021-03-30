@@ -45,15 +45,17 @@ class WebService{
                 return
             }
             
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
             do {
-                
-                let result = try JSONDecoder().decode(T.self, from: data)
+                let result = try decoder.decode(T.self, from: data)
                 completion(.success(result))
                 
             }catch{
                 completion(.failure(.decodeError))
             }
             
-        }
+        }.resume()
     }
 }

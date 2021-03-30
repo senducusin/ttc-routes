@@ -11,8 +11,10 @@
 		A6AA19FC2612CE4E00B5B722 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA19FB2612CE4E00B5B722 /* SceneDelegate.swift */; };
 		A6AA1A032612CE4E00B5B722 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6AA1A022612CE4E00B5B722 /* Assets.xcassets */; };
 		A6AA1A062612CE4E00B5B722 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6AA1A042612CE4E00B5B722 /* LaunchScreen.storyboard */; };
-		A6AA1A122612CF8000B5B722 /* RouteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA1A112612CF8000B5B722 /* RouteListController.swift */; };
+		A6AA1A122612CF8000B5B722 /* StopListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA1A112612CF8000B5B722 /* StopListController.swift */; };
 		A6AA1A192612CFD800B5B722 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA1A182612CFD800B5B722 /* WebService.swift */; };
+		A6AA1A1D2612D15800B5B722 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA1A1C2612D15800B5B722 /* Route.swift */; };
+		A6AA1A202612D19900B5B722 /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA1A1F2612D19900B5B722 /* Stop.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,8 +24,10 @@
 		A6AA1A022612CE4E00B5B722 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6AA1A052612CE4E00B5B722 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A6AA1A072612CE4E00B5B722 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A6AA1A112612CF8000B5B722 /* RouteListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListController.swift; sourceTree = "<group>"; };
+		A6AA1A112612CF8000B5B722 /* StopListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopListController.swift; sourceTree = "<group>"; };
 		A6AA1A182612CFD800B5B722 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		A6AA1A1C2612D15800B5B722 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		A6AA1A1F2612D19900B5B722 /* Stop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +76,7 @@
 		A6AA1A102612CF6D00B5B722 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A6AA1A112612CF8000B5B722 /* RouteListController.swift */,
+				A6AA1A112612CF8000B5B722 /* StopListController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -80,6 +84,8 @@
 		A6AA1A152612CFB800B5B722 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A6AA1A1F2612D19900B5B722 /* Stop.swift */,
+				A6AA1A1C2612D15800B5B722 /* Route.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -169,9 +175,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6AA19FA2612CE4E00B5B722 /* AppDelegate.swift in Sources */,
-				A6AA1A122612CF8000B5B722 /* RouteListController.swift in Sources */,
+				A6AA1A122612CF8000B5B722 /* StopListController.swift in Sources */,
 				A6AA1A192612CFD800B5B722 /* WebService.swift in Sources */,
+				A6AA1A1D2612D15800B5B722 /* Route.swift in Sources */,
 				A6AA19FC2612CE4E00B5B722 /* SceneDelegate.swift in Sources */,
+				A6AA1A202612D19900B5B722 /* Stop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
