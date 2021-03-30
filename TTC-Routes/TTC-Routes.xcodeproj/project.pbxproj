@@ -18,6 +18,7 @@
 		A6AA1A282612D68C00B5B722 /* StopListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA1A272612D68C00B5B722 /* StopListViewModel.swift */; };
 		A6AA1A2D2613006200B5B722 /* StopListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA1A2C2613006200B5B722 /* StopListTableViewCell.swift */; };
 		A6AA1A312613014100B5B722 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA1A302613014100B5B722 /* UIView+Extensions.swift */; };
+		A6AA1A342613040E00B5B722 /* StopListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA1A332613040E00B5B722 /* StopListCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		A6AA1A272612D68C00B5B722 /* StopListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopListViewModel.swift; sourceTree = "<group>"; };
 		A6AA1A2C2613006200B5B722 /* StopListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopListTableViewCell.swift; sourceTree = "<group>"; };
 		A6AA1A302613014100B5B722 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		A6AA1A332613040E00B5B722 /* StopListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopListCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				A6AA1A272612D68C00B5B722 /* StopListViewModel.swift */,
+				A6AA1A332613040E00B5B722 /* StopListCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				A6AA1A1D2612D15800B5B722 /* Route.swift in Sources */,
 				A6AA19FC2612CE4E00B5B722 /* SceneDelegate.swift in Sources */,
 				A6AA1A202612D19900B5B722 /* Stop.swift in Sources */,
+				A6AA1A342613040E00B5B722 /* StopListCellViewModel.swift in Sources */,
 				A6AA1A282612D68C00B5B722 /* StopListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

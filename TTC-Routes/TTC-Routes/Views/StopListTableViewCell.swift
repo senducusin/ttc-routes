@@ -20,7 +20,7 @@ class StopListTableViewCell: UITableViewCell {
     private var routeNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .lightGray
+        
         return label
     }()
     
@@ -36,11 +36,12 @@ class StopListTableViewCell: UITableViewCell {
     
     // MARK: - Helpers
     private func configure(){
-        if let route = self.route {
-            self.routeNameLabel.text = route.name
-        }else{
-            self.routeNameLabel.text = "No Bus Available"
-        }
+        let viewModel = StopListCellViewModel(route: route)
+        
+        routeNameLabel.text = viewModel.routeName
+        routeNameLabel.font = viewModel.routeNameFont
+        routeNameLabel.textColor = viewModel.routeFontColor
+        
     }
     
     private func setupUI(){
