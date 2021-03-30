@@ -77,4 +77,19 @@ extension StopListController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let route = self.viewModel?.routeAtIndexPath(indexPath) else {
+            return
+        }
+        
+        self.navigateToDetailViewWithRoute(route)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    private func navigateToDetailViewWithRoute(_ route:Route) {
+        let controller = RouteListController(route: route)
+        navigationController?.pushViewController(controller, animated: true)
+    }
 }
