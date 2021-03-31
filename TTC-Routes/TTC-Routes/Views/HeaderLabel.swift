@@ -12,6 +12,7 @@ class HeaderLabel: UILabel {
         super.init(frame: .zero)
         font = UIFont.systemFont(ofSize: 16)
         textColor = .black
+        textAlignment = .center
     }
     
     required init?(coder: NSCoder) {

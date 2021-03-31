@@ -17,30 +17,30 @@ class StopListTableViewCell: UITableViewCell {
     
     static let cellIdentifier = "StopListTableViewCell"
     
-    private var noBusLabel: UILabel = {
+    private let noBusLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.italicSystemFont(ofSize: 14)
-        label.textColor = UIColor.lightGray
+        label.textColor = .lightGray
         label.text = "No available bus"
         return label
     }()
     
-    private var routeNameLabel: UILabel = {
+    private let routeNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.textColor = UIColor.black
+        label.textColor = .black
         return label
     }()
     
-    private var nextBusLabelDestination: SmallCellLabel = {
+    private let nextBusLabelDestination: SmallCellLabel = {
         return SmallCellLabel()
     }()
     
-    private var nextBusLabelDeparture: SmallCellLabel = {
+    private let nextBusLabelDeparture: SmallCellLabel = {
         return SmallCellLabel()
     }()
     
-    private var busImage: UIImageView = {
+    private let busImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "bus.fill")
         return imageView

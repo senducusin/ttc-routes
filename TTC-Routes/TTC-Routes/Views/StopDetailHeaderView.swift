@@ -1,5 +1,5 @@
 //
-//  RouteListHeaderView.swift
+//  StopDetailHeaderView.swift
 //  TTC-Routes
 //
 //  Created by Jansen Ducusin on 3/31/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RouteListHeaderView: UIView {
+class StopDetailHeaderView: UIView {
     // MARK: - Properties
     let logoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -16,7 +16,9 @@ class RouteListHeaderView: UIView {
     }()
     
     let agencyLabel: HeaderLabel = {
-        return HeaderLabel()
+        let label = HeaderLabel()
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        return label
     }()
     
     let stopNameLabel: HeaderLabel = {
@@ -26,10 +28,14 @@ class RouteListHeaderView: UIView {
     let routeGroupIdLabel: HeaderLabel = {
         return HeaderLabel()
     }()
-
+    
     // MARK: - Lifecycle
-    override init(frame:CGRect){
+    init(frame:CGRect, viewModel: StopDetailViewModel){
         super.init(frame: frame)
+        
+        self.agencyLabel.text = (viewModel.stop.agency)
+        self.stopNameLabel.text = (viewModel.stop.name)
+        self.routeGroupIdLabel.text = "Route Group ID: \(viewModel.route.routeGroupId)"
     }
 
     required init?(coder: NSCoder) {
@@ -43,24 +49,26 @@ class RouteListHeaderView: UIView {
     // MARK: - Helpers
     private func setupUI(){
         
+        
         self.setupLogoImage()
         
-        self.agencyLabel.text = "Agency: Toronto Transit Commission"
-        self.stopNameLabel.text = "Stop: Finch Station Bus Bay"
-        self.routeGroupIdLabel.text = "Route Group ID: 20"
+        let stack = UIStackView(arrangedSubviews: [
+                                    self.agencyLabel,
+                                    self.stopNameLabel,
+                                    self.routeGroupIdLabel
+        ])
         
-        let stack = UIStackView(arrangedSubviews: [self.agencyLabel, self.stopNameLabel, self.routeGroupIdLabel])
         self.addSubview(stack)
-        stack.anchor(top:self.logoImageView.bottomAnchor, left: self.leftAnchor, paddingTop: 20, paddingLeft: 17)
+        stack.anchor(top:self.logoImageView.bottomAnchor, left: self.leftAnchor, right: self.rightAnchor, paddingTop: 17)
         
         stack.axis = .vertical
-        stack.spacing = 12
+        stack.spacing = 6
     }
     
     private func setupLogoImage(){
         self.logoImageView.setDimensions(height: 100, width: 240)
         self.addSubview(self.logoImageView)
         self.logoImageView.centerX(inView: self)
-        self.logoImageView.anchor(top:self.topAnchor, paddingTop: 35)
+        self.logoImageView.anchor(top:self.topAnchor, paddingTop: 17)
     }
 }

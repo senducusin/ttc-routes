@@ -98,7 +98,7 @@ extension StopListController {
     
     private func navigateToDetailViewWithRoute(_ route:Route, stop:Stop) {
         
-        let controller = RouteListController(route: route, stopName: stop.name, agency: stop.agency)
+        let controller = StopDetailView(route: route, stop: stop)
         navigationController?.pushViewController(controller, animated: true)
     }
 }

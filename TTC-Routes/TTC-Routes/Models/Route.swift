@@ -20,3 +20,8 @@ struct StopTime:Codable {
     var departureTime: String
     var departureTimestamp: Double
 }
+
+struct StopTimeCollection {
+    var shape: String
+    var stopTimes: [StopTime]
+}
