@@ -23,8 +23,9 @@ class StopListController: UITableViewController {
     // MARK: - Helpers
     private func setupTableView(){
         self.tableView.register(StopListTableViewCell.self, forCellReuseIdentifier: StopListTableViewCell.cellIdentifier)
-        self.tableView.rowHeight = 70
+        self.tableView.rowHeight = 90
         self.tableView.tableFooterView = UIView()
+        self.tableView.separatorStyle = .none
     }
     
     private func fetchStops(){
@@ -100,5 +101,9 @@ extension StopListController {
         
         let controller = StopDetailView(route: route, stop: stop)
         navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = .white
     }
 }

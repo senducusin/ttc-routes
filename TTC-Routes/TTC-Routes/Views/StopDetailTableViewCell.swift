@@ -33,8 +33,22 @@ class StopDetailTableViewCell: UITableViewCell {
     private let stackViewTimeStopsContainer: UIStackView = {
         let stack  = UIStackView()
         stack.axis = .horizontal
-        stack.spacing = 5
+        stack.spacing = 15
         return stack
+    }()
+    
+    private let clockImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "clock")
+        imageView.tintColor = .white
+        return imageView
+    }()
+    
+    private let pathImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "point.topleft.down.curvedto.point.bottomright.up")
+        imageView.tintColor = .white
+        return imageView
     }()
     
     static let cellIdentifier = "StopDetailTableViewCell"
@@ -63,41 +77,56 @@ class StopDetailTableViewCell: UITableViewCell {
             paddingRight: padding
         )
         
-//        let miniParentView = UIView()
+        let topHorizontalView = UIView()
+        self.subParentView.addSubview(topHorizontalView)
+        topHorizontalView.anchor(top: subParentView.topAnchor, left: subParentView.leftAnchor, right: subParentView.rightAnchor, paddingTop: 10, paddingLeft: 10, paddingRight: 10, height: self.frame.height/2)
         
-        let stack = UIStackView(arrangedSubviews: [self.stopShapeLabel,self.stackViewTimeStopsContainer])
-        stack.axis = .vertical
+        topHorizontalView.addSubview(self.pathImageView)
+        self.pathImageView.centerY(inView: topHorizontalView, leftAnchor: topHorizontalView.leftAnchor)
         
-        self.subParentView.addSubview(stack)
-        stack.anchor(top:  self.subParentView.topAnchor, left:  self.subParentView.leftAnchor, bottom:  self.subParentView.bottomAnchor, right:  self.subParentView.rightAnchor, paddingTop: 5, paddingLeft: 5, paddingBottom: 5, paddingRight: 5)
+        topHorizontalView.addSubview(self.stopShapeLabel)
+        self.stopShapeLabel.centerY(inView: topHorizontalView, leftAnchor: self.pathImageView.rightAnchor,paddingLeft: 5)
         
-    
+        let bottomHorizontalView = UIView()
+        self.subParentView.addSubview(bottomHorizontalView)
+        bottomHorizontalView.anchor(top: topHorizontalView.bottomAnchor, left: subParentView.leftAnchor, bottom: subParentView.bottomAnchor, right: subParentView.rightAnchor, paddingTop: 5, paddingLeft: 10, paddingBottom: 10, paddingRight: 10, height: self.frame.height/2)
+        
+        bottomHorizontalView.addSubview(self.clockImageView)
+        self.clockImageView.centerY(inView: bottomHorizontalView, leftAnchor: bottomHorizontalView.leftAnchor)
+        
+        bottomHorizontalView.addSubview(self.stackViewTimeStopsContainer)
+        self.stackViewTimeStopsContainer.anchor(top: bottomHorizontalView.topAnchor, left: self.clockImageView.rightAnchor, bottom: bottomHorizontalView.bottomAnchor, right: bottomHorizontalView.rightAnchor, paddingLeft: 2)
     }
     
     private func configure(){
         self.stopShapeLabel.text = stopTimeCollection?.shape
         
-        
         if let stopTimes = self.stopTimeCollection?.stopTimes {
             for stopTime in stopTimes {
-                let timeLabelContainer = UIView()
-                timeLabelContainer.backgroundColor = .white
-             
-                timeLabelContainer.setDimensions(height: 40, width: 75)
-        
-                let label = UILabel()
-                label.font = UIFont.systemFont(ofSize: 15)
-                label.text = Date.unixTimestampToDateStr(stopTime.departureTimestamp, format: .time)
-                label.textColor = .black
-                timeLabelContainer.addSubview(label)
-                label.centerX(inView: timeLabelContainer)
-                label.centerY(inView: timeLabelContainer)
-                
-                self.stackViewTimeStopsContainer.addArrangedSubview(timeLabelContainer)
+                self.showStopTime(stopTime)
             }
             
             let spacer = UIView()
             self.stackViewTimeStopsContainer.addArrangedSubview(spacer)
         }
+    }
+    
+    private func showStopTime(_ stopTime: StopTime){
+        
+        let viewModel = StopTimeViewModel(stopTime: stopTime)
+        
+        let timeLabelContainer = UIView()
+
+        timeLabelContainer.setDimensions(height: 20, width: 70)
+
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 15)
+        label.text = viewModel.timeString
+        label.textColor = viewModel.textColor
+        timeLabelContainer.addSubview(label)
+        label.centerX(inView: timeLabelContainer)
+        label.centerY(inView: timeLabelContainer)
+
+        self.stackViewTimeStopsContainer.addArrangedSubview(timeLabelContainer)
     }
 }

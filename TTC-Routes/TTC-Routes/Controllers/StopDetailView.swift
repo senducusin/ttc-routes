@@ -12,7 +12,7 @@ class StopDetailView: UITableViewController {
     
     var viewModel: StopDetailViewModel
     
-    private lazy var headerView = StopDetailHeaderView(frame: .init(x: 0, y: 0, width: self.view.frame.width, height: 240), viewModel: viewModel)
+    private lazy var headerView = StopDetailHeaderView(frame: .init(x: 0, y: 0, width: self.view.frame.width, height: 225), viewModel: viewModel)
     
     
     // MARK: - Lifecycle

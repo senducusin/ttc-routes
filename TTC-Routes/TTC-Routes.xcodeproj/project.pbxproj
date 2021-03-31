@@ -27,6 +27,7 @@
 		A6B132BF2613F95F00E14BA4 /* SmallCellLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B132BE2613F95F00E14BA4 /* SmallCellLabel.swift */; };
 		A6B132C42614034000E14BA4 /* StopDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B132C32614034000E14BA4 /* StopDetailViewModel.swift */; };
 		A6B132C7261409BB00E14BA4 /* StopDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B132C6261409BB00E14BA4 /* StopDetailTableViewCell.swift */; };
+		A6B132DA2614554300E14BA4 /* StopTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B132D92614554300E14BA4 /* StopTimeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		A6B132BE2613F95F00E14BA4 /* SmallCellLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCellLabel.swift; sourceTree = "<group>"; };
 		A6B132C32614034000E14BA4 /* StopDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailViewModel.swift; sourceTree = "<group>"; };
 		A6B132C6261409BB00E14BA4 /* StopDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailTableViewCell.swift; sourceTree = "<group>"; };
+		A6B132D92614554300E14BA4 /* StopTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopTimeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				A6AA1A272612D68C00B5B722 /* StopListViewModel.swift */,
 				A6AA1A332613040E00B5B722 /* StopListCellViewModel.swift */,
 				A6B132C32614034000E14BA4 /* StopDetailViewModel.swift */,
+				A6B132D92614554300E14BA4 /* StopTimeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				A6AA1A122612CF8000B5B722 /* StopListController.swift in Sources */,
 				A6AA1A192612CFD800B5B722 /* WebService.swift in Sources */,
 				A6B132C42614034000E14BA4 /* StopDetailViewModel.swift in Sources */,
+				A6B132DA2614554300E14BA4 /* StopTimeViewModel.swift in Sources */,
 				A6AA1A312613014100B5B722 /* UIView+Extensions.swift in Sources */,
 				A6AA1A2D2613006200B5B722 /* StopListTableViewCell.swift in Sources */,
 				A6AA1A1D2612D15800B5B722 /* Route.swift in Sources */,
