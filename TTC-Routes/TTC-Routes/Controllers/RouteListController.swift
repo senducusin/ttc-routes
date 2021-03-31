@@ -13,6 +13,8 @@ class RouteListController: UITableViewController {
     var stopName: String
     var agency: String
     
+    private lazy var headerView = RouteListHeaderView(frame: .init(x: 0, y: 0, width: self.view.frame.width, height: 240))
+    
     
     // MARK: - Lifecycle
     init(route: Route, stopName:String, agency:String){
@@ -29,5 +31,7 @@ class RouteListController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = route.name
+        self.tableView.tableHeaderView = headerView
+        self.tableView.tableFooterView = UIView()
     }
 }

@@ -1,5 +1,5 @@
 //
-//  RegularLabel.swift
+//  HeaderLabel.swift
 //  TTC-Routes
 //
 //  Created by Jansen Ducusin on 3/31/21.
@@ -7,10 +7,10 @@
 
 import UIKit
 
-class RegularLabel: UILabel {
+class HeaderLabel: UILabel {
     init(){
         super.init(frame: .zero)
-        font = UIFont.systemFont(ofSize: 14)
+        font = UIFont.systemFont(ofSize: 16)
         textColor = .black
     }
     

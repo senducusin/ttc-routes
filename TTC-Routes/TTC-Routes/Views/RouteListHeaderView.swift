@@ -15,16 +15,16 @@ class RouteListHeaderView: UIView {
         return imageView
     }()
     
-    let agencyLabel: RegularLabel = {
-        return RegularLabel()
+    let agencyLabel: HeaderLabel = {
+        return HeaderLabel()
     }()
     
-    let stopNameLabel: RegularLabel = {
-        return RegularLabel()
+    let stopNameLabel: HeaderLabel = {
+        return HeaderLabel()
     }()
     
-    let routeGroupIdLabel: RegularLabel = {
-        return RegularLabel()
+    let routeGroupIdLabel: HeaderLabel = {
+        return HeaderLabel()
     }()
 
     // MARK: - Lifecycle
@@ -42,9 +42,25 @@ class RouteListHeaderView: UIView {
     
     // MARK: - Helpers
     private func setupUI(){
-        self.logoImageView.setDimensions(height: 50, width: 100)
+        
+        self.setupLogoImage()
+        
+        self.agencyLabel.text = "Agency: Toronto Transit Commission"
+        self.stopNameLabel.text = "Stop: Finch Station Bus Bay"
+        self.routeGroupIdLabel.text = "Route Group ID: 20"
+        
+        let stack = UIStackView(arrangedSubviews: [self.agencyLabel, self.stopNameLabel, self.routeGroupIdLabel])
+        self.addSubview(stack)
+        stack.anchor(top:self.logoImageView.bottomAnchor, left: self.leftAnchor, paddingTop: 20, paddingLeft: 17)
+        
+        stack.axis = .vertical
+        stack.spacing = 12
+    }
+    
+    private func setupLogoImage(){
+        self.logoImageView.setDimensions(height: 100, width: 240)
         self.addSubview(self.logoImageView)
         self.logoImageView.centerX(inView: self)
-        self.logoImageView.anchor(top:self.topAnchor, paddingTop: 10)
+        self.logoImageView.anchor(top:self.topAnchor, paddingTop: 35)
     }
 }
