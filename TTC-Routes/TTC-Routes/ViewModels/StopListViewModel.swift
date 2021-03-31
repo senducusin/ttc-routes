@@ -41,6 +41,10 @@ extension StopListViewModel {
         return stops[index].routes.count
     }
     
+    func stopAtIndexPath(_ indexPath:IndexPath) -> Stop {
+        return stops[indexPath.section]
+    }
+    
     func routeAtIndexPath(_ indexPath:IndexPath) -> Route? {
         let routes = stops[indexPath.section].routes
         

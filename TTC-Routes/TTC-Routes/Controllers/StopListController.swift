@@ -12,15 +12,22 @@ class StopListController: UITableViewController {
     // MARK: - Properties
     var viewModel: StopListViewModel?
     
-    
     // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setupTableView()
+        self.fetchStops()
+    }
+    
+    // MARK: - Helpers
+    private func setupTableView(){
         self.tableView.register(StopListTableViewCell.self, forCellReuseIdentifier: StopListTableViewCell.cellIdentifier)
         self.tableView.rowHeight = 70
         self.tableView.tableFooterView = UIView()
-        
+    }
+    
+    private func fetchStops(){
         if let resource = StopResponse.all() {
             WebService().load(resource: resource) { result in
                 switch result {
@@ -80,16 +87,18 @@ extension StopListController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        guard let route = self.viewModel?.routeAtIndexPath(indexPath) else {
+        guard let route = self.viewModel?.routeAtIndexPath(indexPath),
+              let stop = self.viewModel?.stopAtIndexPath(indexPath) else {
             return
         }
         
-        self.navigateToDetailViewWithRoute(route)
+        self.navigateToDetailViewWithRoute(route, stop: stop)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    private func navigateToDetailViewWithRoute(_ route:Route) {
-        let controller = RouteListController(route: route)
+    private func navigateToDetailViewWithRoute(_ route:Route, stop:Stop) {
+        
+        let controller = RouteListController(route: route, stopName: stop.name, agency: stop.agency)
         navigationController?.pushViewController(controller, animated: true)
     }
 }

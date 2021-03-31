@@ -9,11 +9,16 @@ import UIKit
 
 class RouteListController: UITableViewController {
     // MARK: - Properties
-    var route: Route?
+    var route: Route
+    var stopName: String
+    var agency: String
+    
     
     // MARK: - Lifecycle
-    init(route: Route){
+    init(route: Route, stopName:String, agency:String){
         self.route = route
+        self.stopName = stopName
+        self.agency = agency
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -23,9 +28,6 @@ class RouteListController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let route = self.route {
-            self.title = route.name
-        }
+        self.title = route.name
     }
 }

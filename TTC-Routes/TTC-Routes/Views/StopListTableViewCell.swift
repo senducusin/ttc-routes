@@ -32,18 +32,12 @@ class StopListTableViewCell: UITableViewCell {
         return label
     }()
     
-    private var nextBusLabelDestination: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12)
-        label.textColor = .darkGray
-        return label
+    private var nextBusLabelDestination: SmallCellLabel = {
+        return SmallCellLabel()
     }()
     
-    private var nextBusLabelDeparture: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12)
-        label.textColor = .darkGray
-        return label
+    private var nextBusLabelDeparture: SmallCellLabel = {
+        return SmallCellLabel()
     }()
     
     private var busImage: UIImageView = {
@@ -106,8 +100,6 @@ class StopListTableViewCell: UITableViewCell {
         
         self.setupNoBusLabel()
     }
-    
-
     
     private func setupNoBusLabel(){
         self.addSubview(noBusLabel)
