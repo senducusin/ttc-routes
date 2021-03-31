@@ -28,6 +28,7 @@
 		A6B132C42614034000E14BA4 /* StopDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B132C32614034000E14BA4 /* StopDetailViewModel.swift */; };
 		A6B132C7261409BB00E14BA4 /* StopDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B132C6261409BB00E14BA4 /* StopDetailTableViewCell.swift */; };
 		A6B132DA2614554300E14BA4 /* StopTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B132D92614554300E14BA4 /* StopTimeViewModel.swift */; };
+		A6B132DE2614657D00E14BA4 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B132DD2614657D00E14BA4 /* SettingsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		A6B132C32614034000E14BA4 /* StopDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailViewModel.swift; sourceTree = "<group>"; };
 		A6B132C6261409BB00E14BA4 /* StopDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailTableViewCell.swift; sourceTree = "<group>"; };
 		A6B132D92614554300E14BA4 /* StopTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopTimeViewModel.swift; sourceTree = "<group>"; };
+		A6B132DD2614657D00E14BA4 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			children = (
 				A6AA1A112612CF8000B5B722 /* StopListController.swift */,
 				A6AA1A3E2613335900B5B722 /* StopDetailView.swift */,
+				A6B132DD2614657D00E14BA4 /* SettingsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				A6AA1A202612D19900B5B722 /* Stop.swift in Sources */,
 				A6B132BC2613F84200E14BA4 /* HeaderLabel.swift in Sources */,
 				A6AA1A3F2613335900B5B722 /* StopDetailView.swift in Sources */,
+				A6B132DE2614657D00E14BA4 /* SettingsController.swift in Sources */,
 				A6B132C7261409BB00E14BA4 /* StopDetailTableViewCell.swift in Sources */,
 				A6AA1A342613040E00B5B722 /* StopListCellViewModel.swift in Sources */,
 				A6AA1A282612D68C00B5B722 /* StopListViewModel.swift in Sources */,

@@ -18,6 +18,17 @@ class StopListController: UITableViewController {
         
         self.setupTableView()
         self.fetchStops()
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(settingsDidTap))
+    }
+    
+    // MARK: - Selectors
+    
+    @objc func settingsDidTap(){
+        let controller = SettingsController(style: .insetGrouped)
+        let nav = UINavigationController(rootViewController: controller)
+        
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true,completion: nil)
     }
     
     // MARK: - Helpers
