@@ -8,6 +8,7 @@
 import Foundation
 
 struct StopListViewModel{
+    
     var time: Double
     var stops: [Stop]
     var name: String
@@ -22,31 +23,41 @@ extension StopListViewModel {
 }
 
 extension StopListViewModel {
+    
+    var filteredStops: [Stop] {
+        return stops.filter {$0.routes.count > 0}
+    }
+    
+    var showAll: Bool {
+        return UserDefaults.standard.bool(forKey: USERDEFAULT_KEY_SHOW_ALL_SCHEDULES)
+    }
+    
     var numberOfSections: Int {
-        return stops.count
+        return showAll ? stops.count : filteredStops.count
     }
     
     func sectionTitle(_ index:Int) -> String {
+        let stopName = showAll ? stops[index].name : filteredStops[index].name
         
-        let stopName = stops[index].name
         if stopName.hasPrefix(self.name) {
             let newName = stopName.replacingOccurrences(of: "\(name) ", with: "")
             return newName
         }
         
-        return stops[index].name
+        return stopName
     }
     
     func numberOfRowsInSection(_ index:Int) -> Int {
-        return stops[index].routes.count
+        return showAll ? stops[index].routes.count : filteredStops[index].routes.count
     }
     
     func stopAtIndexPath(_ indexPath:IndexPath) -> Stop {
-        return stops[indexPath.section]
+        
+        return showAll ? stops[indexPath.section] : filteredStops[indexPath.section]
     }
     
     func routeAtIndexPath(_ indexPath:IndexPath) -> Route? {
-        let routes = stops[indexPath.section].routes
+        let routes = showAll ? stops[indexPath.section].routes : filteredStops[indexPath.section].routes
         
         return routes.indices.contains(indexPath.row) ? routes[indexPath.row] : nil
     }
