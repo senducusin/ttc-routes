@@ -13,7 +13,7 @@ enum SettingsViewModel: Int, CaseIterable{
     
     var description: String{
         switch self {
-        case .showAll: return "Show All Schedules"
+        case .showAll: return "Show All Stops"
         case .use24hFormat: return "24 Hours Time Format"
         }
     }
