@@ -12,6 +12,9 @@ class SettingsController: UITableViewController {
     private lazy var headerView = SettingsHeader(frame:
                                                     .init(x: 0, y: 0, width: self.view.frame.width, height: 380))
     
+    private lazy var footerView = SettingsFooter(frame:
+                                                    .init(x: 0, y: 0, width: self.view.frame.width, height: 150))
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +32,7 @@ class SettingsController: UITableViewController {
     // MARK: - Helpers
     private func setupTableView(){
         self.tableView.tableHeaderView = self.headerView
+        self.tableView.tableFooterView = self.footerView
         self.tableView.register(SettingsViewCell.self, forCellReuseIdentifier: SettingsViewCell.cellIdentifier)
         self.tableView.separatorStyle = .singleLine
         self.tableView.contentInsetAdjustmentBehavior = .never
