@@ -44,7 +44,7 @@ class SettingsFooter:UIView {
     // MARK: - Helpers
     private func setupUI(){
         self.addSubview(self.authorLabel)
-        self.authorLabel.anchor(left: self.leftAnchor, bottom: self.bottomAnchor, right: self.rightAnchor)
+        self.authorLabel.anchor(left: self.leftAnchor, bottom: self.bottomAnchor, right: self.rightAnchor, paddingBottom: 10)
         
         self.addSubview(self.versionLabel)
         self.versionLabel.anchor(left: self.leftAnchor, bottom: self.authorLabel.topAnchor, right: self.rightAnchor, paddingBottom: 10)
