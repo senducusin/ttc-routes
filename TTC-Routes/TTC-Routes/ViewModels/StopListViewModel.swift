@@ -8,7 +8,7 @@
 import Foundation
 
 struct StopListViewModel{
-    
+    var appStarted = false
     var time: Double
     var stops: [Stop]
     var name: String
@@ -34,6 +34,10 @@ extension StopListViewModel {
     
     var numberOfSections: Int {
         return showAll ? stops.count : filteredStops.count
+    }
+    
+    var refreshControlText: NSAttributedString {
+        return appStarted ? NSAttributedString(string: "Pull to refresh") : NSAttributedString(string: "Fetching Stops and Routes")
     }
     
     func sectionTitle(_ index:Int) -> String {

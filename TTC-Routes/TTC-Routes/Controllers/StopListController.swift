@@ -11,10 +11,14 @@ class StopListController: UITableViewController {
     
     // MARK: - Properties
     var viewModel: StopListViewModel?
+    var tableRefreshControl = UIRefreshControl()
     
     // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableRefreshControl.attributedTitle = NSAttributedString(string: "Fetching Stops and Routes")
+        self.tableRefreshControl.addTarget(self, action: #selector(fetchStops), for: .valueChanged)
         
         self.setupTableView()
         self.fetchStops()
@@ -27,6 +31,29 @@ class StopListController: UITableViewController {
     }
     
     // MARK: - Selectors
+    @objc private func fetchStops(){
+        self.tableRefreshControl.beginRefreshing()
+        if let resource = StopResponse.all() {
+            WebService().load(resource: resource) { [weak self] result in
+                switch result {
+                case .success(let stopResponse):
+                    self?.viewModel = StopListViewModel(stopResponse)
+                    
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData()
+                        self?.navigationItem.setTitle(stopResponse.name, subtitle: Date.unixTimestampToDateStr(stopResponse.time, format: .date))
+                        self?.tableRefreshControl.endRefreshing()
+                    }
+                    
+                    self?.updateTableRefreshControl()
+                   
+                    
+                case .failure(let error):
+                print(error.localizedDescription)
+                }
+            }
+        }
+    }
     
     @objc func settingsDidTap(){
         let controller = SettingsController(style: .insetGrouped)
@@ -38,30 +65,27 @@ class StopListController: UITableViewController {
     
     // MARK: - Helpers
     private func setupTableView(){
+        self.tableView.addSubview(self.tableRefreshControl)
         self.tableView.register(StopListTableViewCell.self, forCellReuseIdentifier: StopListTableViewCell.cellIdentifier)
         self.tableView.rowHeight = 90
         self.tableView.tableFooterView = UIView()
         self.tableView.separatorStyle = .none
     }
     
-    private func fetchStops(){
-        if let resource = StopResponse.all() {
-            WebService().load(resource: resource) { result in
-                switch result {
-                case .success(let stopResponse):
-                    self.viewModel = StopListViewModel(stopResponse)
-                    
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                        self.navigationItem.setTitle(stopResponse.name, subtitle: Date.unixTimestampToDateStr(stopResponse.time, format: .date))
-                    }
+    private func updateTableRefreshControl(){
+        if var viewModel = viewModel {
+            if !viewModel.appStarted {
+                viewModel.appStarted.toggle()
                 
-                case .failure(let error):
-                print(error.localizedDescription)
+                // Adds smoothness to animation
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.35){
+                    self.tableRefreshControl.attributedTitle = viewModel.refreshControlText
                 }
             }
         }
     }
+    
+
 }
 
 // MARK: Tableview Datasource & Protocols
