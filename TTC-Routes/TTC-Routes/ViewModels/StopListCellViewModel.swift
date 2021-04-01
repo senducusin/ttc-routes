@@ -22,8 +22,12 @@ struct StopListCellViewModel {
         return route == nil ? false : true
     }
     
-    func departureTimeColor(stop:StopTime) -> UIColor{
-        return (stop.departureTimestamp - Date().timeIntervalSince1970) >= 600 ? UIColor.darkGray : UIColor.red
+    func departureTimeColor(stop:StopTime?) -> UIColor{
+        guard let stop = stop else {
+            return .darkGray
+        }
+        
+        return (stop.departureTimestamp - Date().timeIntervalSince1970) >= 600 ? .darkGray : .red
     }
     
     var nextStop: StopTime? {
@@ -42,6 +46,21 @@ struct StopListCellViewModel {
         }
         
         return nil
+    }
+    
+    var shapeDestination: String {
+        guard let nextStop = nextStop else {
+            return "N/A"
+        }
+        
+        let separator = " To "
+        
+        if !nextStop.shape.contains(separator) {
+            return nextStop.shape
+        }
+        
+        let shape = nextStop.shape.components(separatedBy: separator)
+        return "To \(shape[1])"
     }
     
     var departureTimestampString: String {

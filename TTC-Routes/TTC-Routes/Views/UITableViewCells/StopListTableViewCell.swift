@@ -41,8 +41,9 @@ class StopListTableViewCell: UITableViewCell {
     
     private let routeNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = .black
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -97,12 +98,9 @@ class StopListTableViewCell: UITableViewCell {
         self.nextBusLabelDeparture.text = viewModel.departureTimestampString
         routeNameLabel.text = viewModel.routeName
         
+        self.nextBusLabelDestination.text = viewModel.shapeDestination
+        self.nextBusLabelDeparture.textColor = viewModel.departureTimeColor(stop: viewModel.nextStop)
         
-        if let nextStop = viewModel.nextStop {
-            self.nextBusLabelDestination.text = nextStop.shape
-            
-            self.nextBusLabelDeparture.textColor = viewModel.departureTimeColor(stop: nextStop)
-        }
     }
     
     private func setupUI(){
@@ -124,7 +122,9 @@ class StopListTableViewCell: UITableViewCell {
             self.subParentView.addSubview(parentStack)
             parentStack.axis = .vertical
             parentStack.spacing = 7
-            parentStack.centerY(inView: self, leftAnchor: self.busImage.rightAnchor, paddingLeft: 5)
+            
+            parentStack.centerY(inView: self, leftAnchor: self.busImage.rightAnchor, paddingLeft: 10)
+            parentStack.anchor(right:self.subParentView.rightAnchor, paddingRight: 14)
         }
         
         self.setupNoBusLabel()

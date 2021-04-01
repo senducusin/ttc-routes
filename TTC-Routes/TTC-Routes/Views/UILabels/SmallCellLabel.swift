@@ -10,7 +10,7 @@ import UIKit
 class SmallCellLabel: UILabel {
     init(){
         super.init(frame: .zero)
-        font = UIFont.systemFont(ofSize: 12)
+        font = UIFont.systemFont(ofSize: 14)
         textColor = .darkGray
     }
     

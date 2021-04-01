@@ -67,7 +67,7 @@ class StopListController: UITableViewController {
     private func setupTableView(){
         self.tableView.addSubview(self.tableRefreshControl)
         self.tableView.register(StopListTableViewCell.self, forCellReuseIdentifier: StopListTableViewCell.cellIdentifier)
-        self.tableView.rowHeight = 90
+        self.tableView.rowHeight = 110
         self.tableView.tableFooterView = UIView()
         self.tableView.separatorStyle = .none
     }
