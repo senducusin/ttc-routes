@@ -15,6 +15,14 @@ class SettingsHeader: UIView {
     // MARK: - Properties
     weak var delegate: SettingsHeaderDelegate?
     
+    private let settingsImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "gear")
+        imageView.backgroundColor = .gray
+        imageView.layer.cornerRadius = 77.5
+        return imageView
+    }()
+    
     private let dismissButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
@@ -22,6 +30,14 @@ class SettingsHeader: UIView {
         button.tintColor = .black
         button.imageView?.setDimensions(height: 22, width: 22)
         return button
+    }()
+    
+    private let settingsLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Settings"
+        label.font = .boldSystemFont(ofSize: 24)
+        label.textAlignment = .center
+        return label
     }()
     
     // MARK: - Lifecycle
@@ -44,8 +60,19 @@ class SettingsHeader: UIView {
     
     // MARK: - Helper
     private func setupUI(){
+        self.backgroundColor = .lightGray
+        
         addSubview(self.dismissButton)
         self.dismissButton.anchor(top:topAnchor, left: leftAnchor, paddingTop: 44, paddingLeft: 12)
         self.dismissButton.setDimensions(height: 48, width: 48)
+        
+        addSubview(self.settingsImage)
+        self.settingsImage.setDimensions(height: 150, width: 160)
+        self.settingsImage.centerX(inView: self)
+        self.settingsImage.centerY(inView: self)
+
+        addSubview(self.settingsLabel)
+        self.settingsLabel.centerX(inView: self)
+        self.settingsLabel.anchor(top:self.settingsImage.bottomAnchor, paddingTop: 20)
     }
 }

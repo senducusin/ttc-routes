@@ -10,7 +10,7 @@ import Foundation
 enum DateFormat: String {
     case date = "MMM dd y"
     case time = "hh:mm a"
-    case dateTime = "MMMM dd y, hh:mm a"
+    case dateTimeAm = "MMMM dd y, hh:mm a"
 }
 
 extension Date {
@@ -19,7 +19,13 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC-4")
         dateFormatter.locale = NSLocale.current
-        dateFormatter.dateFormat = format.rawValue
+        
+        let user24Time = UserDefaults.standard.bool(forKey: USERDEFAULT_KEY_USE_24H_TIME_FORMAT)
+        
+        dateFormatter.dateFormat = user24Time ? format.rawValue
+            .replacingOccurrences(of: "hh", with: "HH")
+            .replacingOccurrences(of: " a", with: "") : format.rawValue
+        
         return dateFormatter.string(from: date)
     }
 }

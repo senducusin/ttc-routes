@@ -29,9 +29,31 @@ class SettingsController: UITableViewController {
     // MARK: - Helpers
     private func setupTableView(){
         self.tableView.tableHeaderView = self.headerView
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.register(SettingsViewCell.self, forCellReuseIdentifier: SettingsViewCell.cellIdentifier)
+        self.tableView.separatorStyle = .singleLine
         self.tableView.contentInsetAdjustmentBehavior = .never
         self.tableView.rowHeight = 64
+        self.tableView.allowsSelection = false
+        self.tableView.isUserInteractionEnabled = true
+    }
+}
+
+extension SettingsController {
+    // Allows space between header and tableView
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return SettingsViewModel.allCases.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: SettingsViewCell.cellIdentifier, for: indexPath) as! SettingsViewCell
+        
+        cell.viewModel = SettingsViewModel(rawValue: indexPath.row)
+        
+        return cell
     }
 }
 

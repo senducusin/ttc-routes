@@ -19,6 +19,10 @@ struct StopTimeViewModel {
         let interval = stopTime.departureTimestamp - Date().timeIntervalSince1970
         
         switch interval {
+        
+        case let interval where interval < 0:
+            return .lightGray
+        
         case 0...600:
             return .red
         

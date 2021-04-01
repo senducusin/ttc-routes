@@ -43,4 +43,13 @@ struct StopListCellViewModel {
         
         return nil
     }
+    
+    var departureTimestampString: String {
+        guard let departureTimestamp = nextStop?.departureTimestamp else {
+            return "N/A"
+        }
+    
+        
+        return Date.unixTimestampToDateStr(departureTimestamp, format: .time)
+    }
 }

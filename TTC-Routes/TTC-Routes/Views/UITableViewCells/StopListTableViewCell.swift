@@ -94,12 +94,13 @@ class StopListTableViewCell: UITableViewCell {
         self.subParentView.isHidden = !viewModel.noBusIsHidden
         self.noBusLabel.isHidden = viewModel.noBusIsHidden
         self.busImage.isHidden = viewModel.routePropertyIsHidden
+        self.nextBusLabelDeparture.text = viewModel.departureTimestampString
         routeNameLabel.text = viewModel.routeName
         
         
         if let nextStop = viewModel.nextStop {
             self.nextBusLabelDestination.text = nextStop.shape
-            self.nextBusLabelDeparture.text = Date.unixTimestampToDateStr(nextStop.departureTimestamp, format: .time)
+            
             self.nextBusLabelDeparture.textColor = viewModel.departureTimeColor(stop: nextStop)
         }
     }

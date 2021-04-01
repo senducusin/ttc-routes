@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6A6F0E32615574E0064662E /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6F0E22615574E0064662E /* SettingsViewCell.swift */; };
+		A6A6F0F0261571480064662E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6F0EF261571480064662E /* Constants.swift */; };
 		A6AA19FA2612CE4E00B5B722 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA19F92612CE4E00B5B722 /* AppDelegate.swift */; };
 		A6AA19FC2612CE4E00B5B722 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA19FB2612CE4E00B5B722 /* SceneDelegate.swift */; };
 		A6AA1A032612CE4E00B5B722 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6AA1A022612CE4E00B5B722 /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A6A6F0E22615574E0064662E /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
+		A6A6F0EF261571480064662E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A6AA19F62612CE4E00B5B722 /* TTC-Routes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TTC-Routes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6AA19F92612CE4E00B5B722 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6AA19FB2612CE4E00B5B722 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +77,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6A6F0DB261553860064662E /* UILabels */ = {
+			isa = PBXGroup;
+			children = (
+				A6B132BB2613F84200E14BA4 /* HeaderLabel.swift */,
+				A6B132BE2613F95F00E14BA4 /* SmallCellLabel.swift */,
+			);
+			path = UILabels;
+			sourceTree = "<group>";
+		};
+		A6A6F0DC261553960064662E /* UITableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				A6AA1A2C2613006200B5B722 /* StopListTableViewCell.swift */,
+				A6B132C6261409BB00E14BA4 /* StopDetailTableViewCell.swift */,
+				A6A6F0E22615574E0064662E /* SettingsViewCell.swift */,
+			);
+			path = UITableViewCells;
+			sourceTree = "<group>";
+		};
+		A6A6F0E0261553AD0064662E /* UIViews */ = {
+			isa = PBXGroup;
+			children = (
+				A6B132B82613F58900E14BA4 /* StopDetailHeaderView.swift */,
+				A6B132E02614834B00E14BA4 /* SettingsHeader.swift */,
+			);
+			path = UIViews;
+			sourceTree = "<group>";
+		};
+		A6A6F0EE2615713A0064662E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A6A6F0EF261571480064662E /* Constants.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		A6AA19ED2612CE4E00B5B722 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +132,7 @@
 		A6AA19F82612CE4E00B5B722 /* TTC-Routes */ = {
 			isa = PBXGroup;
 			children = (
+				A6A6F0EE2615713A0064662E /* Resources */,
 				A6AA1A2B2613005000B5B722 /* Views */,
 				A6AA1A262612D68000B5B722 /* ViewModels */,
 				A6AA1A172612CFCE00B5B722 /* Extensions */,
@@ -159,12 +200,9 @@
 		A6AA1A2B2613005000B5B722 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A6AA1A2C2613006200B5B722 /* StopListTableViewCell.swift */,
-				A6B132B82613F58900E14BA4 /* StopDetailHeaderView.swift */,
-				A6B132BB2613F84200E14BA4 /* HeaderLabel.swift */,
-				A6B132BE2613F95F00E14BA4 /* SmallCellLabel.swift */,
-				A6B132C6261409BB00E14BA4 /* StopDetailTableViewCell.swift */,
-				A6B132E02614834B00E14BA4 /* SettingsHeader.swift */,
+				A6A6F0E0261553AD0064662E /* UIViews */,
+				A6A6F0DC261553960064662E /* UITableViewCells */,
+				A6A6F0DB261553860064662E /* UILabels */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -238,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6A6F0F0261571480064662E /* Constants.swift in Sources */,
 				A6AA1A3C26130B6B00B5B722 /* UINavigationItem+Extensions.swift in Sources */,
 				A6AA19FA2612CE4E00B5B722 /* AppDelegate.swift in Sources */,
 				A6AA1A38261309F900B5B722 /* Date+Extensions.swift in Sources */,
@@ -255,6 +294,7 @@
 				A6AA1A202612D19900B5B722 /* Stop.swift in Sources */,
 				A6B132BC2613F84200E14BA4 /* HeaderLabel.swift in Sources */,
 				A6AA1A3F2613335900B5B722 /* StopDetailView.swift in Sources */,
+				A6A6F0E32615574E0064662E /* SettingsViewCell.swift in Sources */,
 				A6B132DE2614657D00E14BA4 /* SettingsController.swift in Sources */,
 				A6B132C7261409BB00E14BA4 /* StopDetailTableViewCell.swift in Sources */,
 				A6B132E42614853E00E14BA4 /* SettingsViewModel.swift in Sources */,
