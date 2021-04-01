@@ -10,7 +10,7 @@ import UIKit
 class StopDetailTimeLabel: UILabel {
     init(){
         super.init(frame: .zero)
-        font = UIFont.systemFont(ofSize: 15)
+        font = UIFont.boldSystemFont(ofSize: 15)
         textColor = .black
     }
     

@@ -115,7 +115,7 @@ class StopDetailTableViewCell: UITableViewCell {
         
         let stack  = UIStackView(arrangedSubviews: [self.stopTimeALabel, self.stopTimeBLabel, self.stopTimeCLabel, UIView()])
         stack.axis = .horizontal
-        stack.spacing = 10
+        stack.spacing = 15
         
         bottomHorizontalView.addSubview(stack)
         stack.anchor(top: bottomHorizontalView.topAnchor, left: self.clockImageView.rightAnchor, bottom: bottomHorizontalView.bottomAnchor, right: bottomHorizontalView.rightAnchor, paddingLeft: 5)
