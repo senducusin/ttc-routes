@@ -29,7 +29,7 @@ extension StopListViewModel {
     }
     
     var showAll: Bool {
-        return UserDefaults.standard.bool(forKey: USERDEFAULT_KEY_SHOW_ALL_SCHEDULES)
+        return UserDefaults.standard.bool(forKey: USERDEFAULT_KEY_SHOW_ALL_STOPS)
     }
     
     var numberOfSections: Int {

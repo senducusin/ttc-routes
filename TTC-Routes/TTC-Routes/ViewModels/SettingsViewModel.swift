@@ -28,7 +28,7 @@ enum SettingsViewModel: Int, CaseIterable{
     var userDefaultKeys: String {
         
         switch self {
-        case .showAll: return USERDEFAULT_KEY_SHOW_ALL_SCHEDULES
+        case .showAll: return USERDEFAULT_KEY_SHOW_ALL_STOPS
         case .use24hFormat: return USERDEFAULT_KEY_USE_24H_TIME_FORMAT
         }
     }
