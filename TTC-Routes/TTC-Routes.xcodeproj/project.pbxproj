@@ -12,6 +12,7 @@
 		A6A6F0F5261579070064662E /* SettingsFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6F0F4261579070064662E /* SettingsFooter.swift */; };
 		A6A6F0F826159B3F0064662E /* StopDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6F0F726159B3F0064662E /* StopDetailCellViewModel.swift */; };
 		A6A6F0FB26159F690064662E /* StopDetailShapeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6F0FA26159F690064662E /* StopDetailShapeLabel.swift */; };
+		A6A6F1022615B7B90064662E /* StopDetailTimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6F1012615B7B90064662E /* StopDetailTimeLabel.swift */; };
 		A6AA19FA2612CE4E00B5B722 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA19F92612CE4E00B5B722 /* AppDelegate.swift */; };
 		A6AA19FC2612CE4E00B5B722 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AA19FB2612CE4E00B5B722 /* SceneDelegate.swift */; };
 		A6AA1A032612CE4E00B5B722 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6AA1A022612CE4E00B5B722 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		A6A6F0F4261579070064662E /* SettingsFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFooter.swift; sourceTree = "<group>"; };
 		A6A6F0F726159B3F0064662E /* StopDetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailCellViewModel.swift; sourceTree = "<group>"; };
 		A6A6F0FA26159F690064662E /* StopDetailShapeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailShapeLabel.swift; sourceTree = "<group>"; };
+		A6A6F1012615B7B90064662E /* StopDetailTimeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailTimeLabel.swift; sourceTree = "<group>"; };
 		A6AA19F62612CE4E00B5B722 /* TTC-Routes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TTC-Routes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6AA19F92612CE4E00B5B722 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6AA19FB2612CE4E00B5B722 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				A6B132BB2613F84200E14BA4 /* HeaderLabel.swift */,
 				A6B132BE2613F95F00E14BA4 /* SmallCellLabel.swift */,
 				A6A6F0FA26159F690064662E /* StopDetailShapeLabel.swift */,
+				A6A6F1012615B7B90064662E /* StopDetailTimeLabel.swift */,
 			);
 			path = UILabels;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				A6A6F0F0261571480064662E /* Constants.swift in Sources */,
 				A6AA1A3C26130B6B00B5B722 /* UINavigationItem+Extensions.swift in Sources */,
 				A6AA19FA2612CE4E00B5B722 /* AppDelegate.swift in Sources */,
+				A6A6F1022615B7B90064662E /* StopDetailTimeLabel.swift in Sources */,
 				A6AA1A38261309F900B5B722 /* Date+Extensions.swift in Sources */,
 				A6AA1A122612CF8000B5B722 /* StopListController.swift in Sources */,
 				A6A6F0FB26159F690064662E /* StopDetailShapeLabel.swift in Sources */,

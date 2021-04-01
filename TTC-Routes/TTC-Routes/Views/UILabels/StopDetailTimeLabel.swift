@@ -1,5 +1,5 @@
 //
-//  StopDetailShapeLabel.swift
+//  StopDetailTimeLabel.swift
 //  TTC-Routes
 //
 //  Created by Jansen Ducusin on 4/1/21.
@@ -7,11 +7,10 @@
 
 import UIKit
 
-class StopDetailShapeLabel: UILabel {
+class StopDetailTimeLabel: UILabel {
     init(){
         super.init(frame: .zero)
-        font = UIFont.systemFont(ofSize: 16)
-        adjustsFontSizeToFitWidth = true
+        font = UIFont.systemFont(ofSize: 15)
         textColor = .black
     }
     

@@ -36,6 +36,7 @@ class StopDetailView: UITableViewController {
         self.tableView.tableHeaderView = headerView
         self.tableView.tableFooterView = UIView()
         self.tableView.separatorStyle = .none
+        self.tableView.allowsSelection = false
         self.tableView.register(StopDetailTableViewCell.self, forCellReuseIdentifier: StopDetailTableViewCell.cellIdentifier)
         self.tableView.rowHeight = 110
     }
