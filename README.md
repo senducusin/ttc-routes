@@ -25,8 +25,9 @@ This app does not use storyboards except in the launch screen.
 
 ### Detail View  
 - When selecting a route; a detail view will show all available stops, route group ID, and the agency.  
+- Shows the origin and destination of the trip.  
 - The text color of the stop times may differ depending on the condition (Gray: already lapsed, Red: 10 minutes or less before departure, Black: 11 minutes or more before departure).  
-- UTC-4 was used to calculate the time difference.
+- UTC-4 was used to calculate the time difference.  
 ![](/Previews/detail-view.png)  
 
 ### Settings
