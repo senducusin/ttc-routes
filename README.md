@@ -1,29 +1,32 @@
-# README #
+**TTC Stops and Routes**
 
-This README would normally document whatever steps are necessary to get your application up and running.
+An app that shows all bus stops and routes for TTC Finch Station.
 
-### What is this repository for? ###
+This app does not use storyboards except in the launch screen.  
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+---
 
-### How do I get set up? ###
+## Features
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+- Displays a loading indicator when fetching from the API
+![](/Previews/first-fetch.png)  
 
-### Contribution guidelines ###
+- The main page shows all the available stops for Finch station. By default, stops with no routes are hidden.  
+![](/Previews/stops-routes.png)  
 
-* Writing tests
-* Code review
-* Other guidelines
+- Table can be pulled down to fetch the latest trip schedule  
+![](/Previews/pull-reload.png)  
 
-### Who do I talk to? ###
+- When selecting a route, the app displays a detail view, showing all the available stops, route group ID, and the agency.
+![](/Previews/detail-view.png)  
 
-* Repo owner or admin
-* Other community or team contact
+- The Settings page can be accessed by tapping the gear icon on the upper-left corner of the main page.
+![](/Previews/gear-icon.png)  
+
+- In the Settings page, the user has the option to toggle and show all stops and or display a 24-hour time format instead of AM-PM format.
+![](/Previews/settings.png)  
+---
+
+## Demo
+
+![](/Previews/preview.gif)
