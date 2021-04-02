@@ -2,7 +2,7 @@
 
 An app that shows all bus stops and routes for TTC Finch Station.
 
-This app does not use storyboards except in the launch screen.  
+This app does not use storyboards except in the launch screen.   
 
 ---
 
@@ -15,7 +15,7 @@ This app does not use storyboards except in the launch screen.
 ### Main Page  
 - The main page shows all the available stops for Finch station.  
 - By default, stops with no routes are hidden.  
-- A speedometer icon is displayed beside the departure time when the actual time is 10 minutes or less before the time departure.  
+- A speedometer icon is displayed beside the departure time when the actual time (UTC-4 was used to follow the departure time) is 10 minutes or less before the time departure.  
 - Date of the trip schedule is also displayed below the title bar.  
 ![](/Previews/stops-routes.png)  
 
@@ -26,12 +26,13 @@ This app does not use storyboards except in the launch screen.
 ### Detail View  
 - When selecting a route; a detail view will show all available stops, route group ID, and the agency.  
 - The text color of the stop times may differ depending on the condition (Gray: already lapsed, Red: 10 minutes or less before departure, Black: 11 minutes or more before departure).  
+- UTC-4 was used to calculate the time difference.
 ![](/Previews/detail-view.png)  
 
 ### Settings
 - In the Settings page, the user has the option to toggle and show all stops and or display a 24-hour time format instead of the AM-PM format.  
 - The Settings page can be accessed by tapping the gear icon on the upper-left corner of the main page.  
-- All of the setitngs configuration are off by default.
+- All of the setitngs configuration are off by default.  
 ![](/Previews/settings.png)  
 
 ---
