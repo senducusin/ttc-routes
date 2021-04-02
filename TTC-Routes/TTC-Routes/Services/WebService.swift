@@ -30,7 +30,6 @@ extension Resource {
     }
 }
 
-
 class WebService{
     func load<T>(resource:Resource<T>, completion:@escaping(Result<T,NetworkError>)->()){
         var request = URLRequest(url: resource.url)

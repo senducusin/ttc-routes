@@ -10,15 +10,17 @@ import UIKit
 class SettingsController: UITableViewController {
     // MARK: - Properties
     private lazy var headerView = SettingsHeader(frame:
-                                                    .init(x: 0, y: 0, width: self.view.frame.width, height: 380))
+                                                    .init(x: 0, y: 0, width: self.view.frame.width, height: (UIScreen.main.bounds.height/2)-60))
     
     private lazy var footerView = SettingsFooter(frame:
-                                                    .init(x: 0, y: 0, width: self.view.frame.width, height: 150))
+                                                    .init(x: 0, y: 0, width: self.view.frame.width, height: (UIScreen.main.bounds.height/2)-100))
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.setupTableView()
+        
         headerView.delegate = self
     }
     
@@ -26,7 +28,6 @@ class SettingsController: UITableViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
-//        self.navigationController?.navigationBar.barStyle = .white
     }
     
     // MARK: - Helpers

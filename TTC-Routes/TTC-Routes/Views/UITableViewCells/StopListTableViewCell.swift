@@ -64,7 +64,7 @@ class StopListTableViewCell: UITableViewCell {
     private let speedImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "speedometer")
-        imageView.tintColor = .themeMonza
+        imageView.tintColor = .darkGray
         imageView.isHidden = false
         return imageView
     }()
@@ -109,7 +109,6 @@ class StopListTableViewCell: UITableViewCell {
         routeNameLabel.text = viewModel.routeName
         
         self.nextBusLabelDestination.text = viewModel.shapeDestination
-        self.nextBusLabelDeparture.textColor = viewModel.departureTimeColor
         self.speedImage.isHidden = viewModel.departureIconVisibility
     }
     

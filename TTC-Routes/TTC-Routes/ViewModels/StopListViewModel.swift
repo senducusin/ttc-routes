@@ -53,6 +53,7 @@ extension StopListViewModel {
     
     func numberOfRowsInSection(_ index:Int) -> Int {
         
+        // allCount's minimum value is set to 1, to show "No available bus" cell in the tableView
         let allCount = stops[index].routes.count == 0 ? 1 : stops[index].routes.count
         
         return showAll ? allCount : filteredStops[index].routes.count

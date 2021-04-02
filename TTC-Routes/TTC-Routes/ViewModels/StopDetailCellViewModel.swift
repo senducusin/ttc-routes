@@ -40,7 +40,7 @@ extension StopDetailCellViewModel {
         switch interval {
         
         case let interval where interval < 0:
-            return .themeAmour
+            return .lightGray
         
         case 0...600:
             return .themeMonza

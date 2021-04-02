@@ -21,7 +21,6 @@ extension Date {
         dateFormatter.locale = NSLocale.current
         
         let user24Time = UserDefaults.standard.bool(forKey: USERDEFAULT_KEY_USE_24H_TIME_FORMAT)
-        
         dateFormatter.dateFormat = user24Time ?
             format.rawValue
             .replacingOccurrences(of: "hh", with: "HH")

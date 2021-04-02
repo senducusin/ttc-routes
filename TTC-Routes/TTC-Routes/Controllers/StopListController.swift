@@ -17,24 +17,29 @@ class StopListController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableRefreshControl.attributedTitle = NSAttributedString(string: "Fetching Stops and Routes")
-        self.tableRefreshControl.addTarget(self, action: #selector(fetchStops), for: .valueChanged)
+        self.setupRefreshController()
         
         self.setupTableView()
+        
         self.fetchStops()
+        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(settingsDidTap))
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // Update indicators for changes
         self.tableView.reloadData()
     }
     
     // MARK: - Selectors
     @objc private func fetchStops(){
         self.tableRefreshControl.beginRefreshing()
+        
         if let resource = StopResponse.all() {
             WebService().load(resource: resource) { [weak self] result in
+                
                 switch result {
                 case .success(let stopResponse):
                     self?.viewModel = StopListViewModel(stopResponse)
@@ -50,6 +55,7 @@ class StopListController: UITableViewController {
                     
                 case .failure(let error):
                 print(error.localizedDescription)
+                    
                 }
             }
         }
@@ -64,6 +70,11 @@ class StopListController: UITableViewController {
     }
     
     // MARK: - Helpers
+    private func setupRefreshController(){
+        self.tableRefreshControl.attributedTitle = NSAttributedString(string: "Fetching Stops and Routes")
+        self.tableRefreshControl.addTarget(self, action: #selector(fetchStops), for: .valueChanged)
+    }
+    
     private func setupTableView(){
         self.tableView.addSubview(self.tableRefreshControl)
         self.tableView.register(StopListTableViewCell.self, forCellReuseIdentifier: StopListTableViewCell.cellIdentifier)

@@ -9,6 +9,7 @@ import UIKit
 
 extension UINavigationItem {
 
+  // Allows to display a two-liner title
   func setTitle(_ title: String, subtitle: String) {
     let appearance = UINavigationBar.appearance()
     let textColor = appearance.titleTextAttributes?[NSAttributedString.Key.foregroundColor] as? UIColor ?? .white

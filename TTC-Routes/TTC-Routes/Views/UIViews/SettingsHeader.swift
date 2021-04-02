@@ -75,6 +75,6 @@ class SettingsHeader: UIView {
 
         addSubview(self.settingsLabel)
         self.settingsLabel.centerX(inView: self)
-        self.settingsLabel.anchor(top:self.settingsImage.bottomAnchor, paddingTop: 20)
+        self.settingsLabel.anchor(top:self.settingsImage.bottomAnchor, paddingTop: 7)
     }
 }

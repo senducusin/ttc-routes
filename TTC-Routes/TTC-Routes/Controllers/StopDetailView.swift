@@ -28,6 +28,7 @@ class StopDetailView: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = self.viewModel.route.name
+        
         self.setupTableView()
     }
     
