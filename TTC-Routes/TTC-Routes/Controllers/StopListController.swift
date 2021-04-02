@@ -12,6 +12,7 @@ class StopListController: UITableViewController {
     // MARK: - Properties
     var viewModel: StopListViewModel?
     var tableRefreshControl = UIRefreshControl()
+    private lazy var headerView = StopListHeaderView(frame: .init(x: 0, y: 0, width: self.view.frame.width, height: 50))
     
     // MARK: - Lifecycles
     override func viewDidLoad() {
@@ -35,6 +36,7 @@ class StopListController: UITableViewController {
     
     // MARK: - Selectors
     @objc private func fetchStops(){
+        self.tableView.tableHeaderView = nil
         self.tableRefreshControl.beginRefreshing()
         
         if let resource = StopResponse.all() {
@@ -55,6 +57,10 @@ class StopListController: UITableViewController {
                     
                 case .failure(let error):
                 print(error.localizedDescription)
+                    DispatchQueue.main.async {
+                        self?.tableRefreshControl.endRefreshing()
+                        self?.tableView.tableHeaderView = self?.headerView
+                    }
                     
                 }
             }
@@ -153,6 +159,14 @@ extension StopListController {
         
         if let header = view as? UITableViewHeaderFooterView {
             header.textLabel?.textColor = .themeMonza
+        }
+    }
+}
+
+extension StopListController{
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        if self.tableView.tableHeaderView != nil {
+            self.tableView.tableHeaderView = nil
         }
     }
 }

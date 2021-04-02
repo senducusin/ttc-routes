@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A60165AD2616A9EE00777FEC /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60165AC2616A9EE00777FEC /* UIColor+Extensions.swift */; };
+		A60165B22616EC0700777FEC /* StopListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60165B12616EC0700777FEC /* StopListHeaderView.swift */; };
 		A6A6F0E32615574E0064662E /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6F0E22615574E0064662E /* SettingsViewCell.swift */; };
 		A6A6F0F0261571480064662E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6F0EF261571480064662E /* Constants.swift */; };
 		A6A6F0F5261579070064662E /* SettingsFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6F0F4261579070064662E /* SettingsFooter.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		A60165AC2616A9EE00777FEC /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		A60165B12616EC0700777FEC /* StopListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopListHeaderView.swift; sourceTree = "<group>"; };
 		A6A6F0E22615574E0064662E /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
 		A6A6F0EF261571480064662E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A6A6F0F4261579070064662E /* SettingsFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFooter.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				A6B132B82613F58900E14BA4 /* StopDetailHeaderView.swift */,
 				A6B132E02614834B00E14BA4 /* SettingsHeader.swift */,
 				A6A6F0F4261579070064662E /* SettingsFooter.swift */,
+				A60165B12616EC0700777FEC /* StopListHeaderView.swift */,
 			);
 			path = UIViews;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				A6A6F0E32615574E0064662E /* SettingsViewCell.swift in Sources */,
 				A6B132DE2614657D00E14BA4 /* SettingsController.swift in Sources */,
 				A6B132C7261409BB00E14BA4 /* StopDetailTableViewCell.swift in Sources */,
+				A60165B22616EC0700777FEC /* StopListHeaderView.swift in Sources */,
 				A6B132E42614853E00E14BA4 /* SettingsViewModel.swift in Sources */,
 				A6AA1A342613040E00B5B722 /* StopListCellViewModel.swift in Sources */,
 				A6AA1A282612D68C00B5B722 /* StopListViewModel.swift in Sources */,
