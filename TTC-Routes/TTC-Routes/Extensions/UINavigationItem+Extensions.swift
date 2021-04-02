@@ -11,7 +11,7 @@ extension UINavigationItem {
 
   func setTitle(_ title: String, subtitle: String) {
     let appearance = UINavigationBar.appearance()
-    let textColor = appearance.titleTextAttributes?[NSAttributedString.Key.foregroundColor] as? UIColor ?? .black
+    let textColor = appearance.titleTextAttributes?[NSAttributedString.Key.foregroundColor] as? UIColor ?? .white
 
     let titleLabel = UILabel()
     titleLabel.text = title

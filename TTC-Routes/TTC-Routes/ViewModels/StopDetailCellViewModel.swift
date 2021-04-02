@@ -16,6 +16,7 @@ struct StopDetailCellViewModel {
 
     init(stopTimeCollection:StopTimeCollection){
         self.stopTimeCollection = stopTimeCollection
+        
         let shapes = stopTimeCollection.shape.components(separatedBy: " To ")
         self.shapeOrigin = "Origin: \(shapes[0])"
         self.shapeDestination = "Destination: \(shapes[1])"
@@ -39,16 +40,13 @@ extension StopDetailCellViewModel {
         switch interval {
         
         case let interval where interval < 0:
-            return .lightGray
+            return .themeAmour
         
         case 0...600:
-            return .red
-        
-        case 600...1200:
-            return .systemPink
+            return .themeMonza
         
         default:
-            return .black
+            return .darkGray
         }
     }
 }

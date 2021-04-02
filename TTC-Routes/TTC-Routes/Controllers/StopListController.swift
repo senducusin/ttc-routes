@@ -84,8 +84,6 @@ class StopListController: UITableViewController {
             }
         }
     }
-    
-
 }
 
 // MARK: Tableview Datasource & Protocols
@@ -109,13 +107,9 @@ extension StopListController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let viewModel = viewModel else {
-            return 1
-        }
+        guard let viewModel = viewModel else {return 1}
         
-        let rowCount = viewModel.numberOfRowsInSection(section)
-        
-        return rowCount == 0 ? 1 : rowCount
+        return viewModel.numberOfRowsInSection(section)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -145,5 +139,9 @@ extension StopListController {
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         view.tintColor = .white
+        
+        if let header = view as? UITableViewHeaderFooterView {
+            header.textLabel?.textColor = .themeMonza
+        }
     }
 }

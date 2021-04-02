@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A60165AD2616A9EE00777FEC /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60165AC2616A9EE00777FEC /* UIColor+Extensions.swift */; };
 		A6A6F0E32615574E0064662E /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6F0E22615574E0064662E /* SettingsViewCell.swift */; };
 		A6A6F0F0261571480064662E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6F0EF261571480064662E /* Constants.swift */; };
 		A6A6F0F5261579070064662E /* SettingsFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6F0F4261579070064662E /* SettingsFooter.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A60165AC2616A9EE00777FEC /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		A6A6F0E22615574E0064662E /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
 		A6A6F0EF261571480064662E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A6A6F0F4261579070064662E /* SettingsFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFooter.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				A6AA1A302613014100B5B722 /* UIView+Extensions.swift */,
 				A6AA1A37261309F900B5B722 /* Date+Extensions.swift */,
 				A6AA1A3B26130B6B00B5B722 /* UINavigationItem+Extensions.swift */,
+				A60165AC2616A9EE00777FEC /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				A6AA1A192612CFD800B5B722 /* WebService.swift in Sources */,
 				A6B132C42614034000E14BA4 /* StopDetailViewModel.swift in Sources */,
 				A6AA1A312613014100B5B722 /* UIView+Extensions.swift in Sources */,
+				A60165AD2616A9EE00777FEC /* UIColor+Extensions.swift in Sources */,
 				A6AA1A2D2613006200B5B722 /* StopListTableViewCell.swift in Sources */,
 				A6AA1A1D2612D15800B5B722 /* Route.swift in Sources */,
 				A6B132BF2613F95F00E14BA4 /* SmallCellLabel.swift in Sources */,
@@ -460,7 +464,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.senducusin.TTC-Routes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -479,7 +483,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.senducusin.TTC-Routes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

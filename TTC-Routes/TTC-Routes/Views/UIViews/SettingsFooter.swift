@@ -13,7 +13,7 @@ class SettingsFooter:UIView {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12)
         label.text = "Created by Jansen Ducusin"
-        label.textColor = .lightGray
+        label.textColor = .darkGray
         label.textAlignment = .center
         return label
     }()
@@ -22,7 +22,7 @@ class SettingsFooter:UIView {
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         let label = UILabel()
         label.font = .systemFont(ofSize: 14)
-        label.textColor = .lightGray
+        label.textColor = .darkGray
         label.textAlignment = .center
         label.text = "Version \(appVersion ?? "N/A")"
         return label

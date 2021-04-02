@@ -22,12 +22,17 @@ struct StopListCellViewModel {
         return route == nil ? false : true
     }
     
-    func departureTimeColor(stop:StopTime?) -> UIColor{
-        guard let stop = stop else {
+    var departureTimeColor:UIColor{
+        guard let stop = nextStop else {
             return .darkGray
         }
         
-        return (stop.departureTimestamp - Date().timeIntervalSince1970) >= 600 ? .darkGray : .red
+        return (stop.departureTimestamp - Date().timeIntervalSince1970) >= 600 ? .darkGray : .themeMonza
+    }
+    
+    var departureIconVisibility: Bool {
+        guard let stop = self.nextStop else { return false }
+        return (stop.departureTimestamp - Date().timeIntervalSince1970) >= 600 ? true : false
     }
     
     var nextStop: StopTime? {
@@ -67,8 +72,15 @@ struct StopListCellViewModel {
         guard let departureTimestamp = nextStop?.departureTimestamp else {
             return "N/A"
         }
-    
         
         return Date.unixTimestampToDateStr(departureTimestamp, format: .time)
+    }
+    
+    func setSubParentViewBorderColor(isHighlighted:Bool = false) -> CGColor {
+        return isHighlighted ? UIColor.themeBrinkPink.cgColor : UIColor.themeCosmos.cgColor
+    }
+    
+    func setSubParentViewBorderWidth(isHighlighted:Bool = false) -> CGFloat {
+        return isHighlighted ? 1.5 : 1
     }
 }

@@ -15,17 +15,16 @@ class StopListTableViewCell: UITableViewCell {
         }
     }
     
+    var viewModel: StopListCellViewModel?
+    
     static let cellIdentifier = "StopListTableViewCell"
     
     let subParentView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 8
-        
         view.backgroundColor = .white
-        view.layer.shadowOpacity = 0.1
-        view.layer.shadowRadius = 5
-        view.layer.shadowOffset = .init(width:2, height:2)
-        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.themeCosmos.cgColor
         
         return view
     }()
@@ -33,7 +32,7 @@ class StopListTableViewCell: UITableViewCell {
     private let noBusLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.italicSystemFont(ofSize: 14)
-        label.textColor = .lightGray
+        label.textColor = .themeBrinkPink
         label.text = "No available bus"
         label.textAlignment = .center
         return label
@@ -42,7 +41,7 @@ class StopListTableViewCell: UITableViewCell {
     private let routeNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .black
+        label.textColor = .themeMonza
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
@@ -58,6 +57,15 @@ class StopListTableViewCell: UITableViewCell {
     private let busImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "bus.fill")
+        imageView.tintColor = .themeBrinkPink
+        return imageView
+    }()
+    
+    private let speedImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "speedometer")
+        imageView.tintColor = .themeMonza
+        imageView.isHidden = false
         return imageView
     }()
     
@@ -74,17 +82,18 @@ class StopListTableViewCell: UITableViewCell {
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        if highlighted {
-            self.subParentView.backgroundColor = .lightGray
-        }else{
-            self.subParentView.backgroundColor = .white
-        }
+        guard let viewModel = self.viewModel else {return}
+        
+        self.subParentView.layer.borderColor = viewModel.setSubParentViewBorderColor(isHighlighted: highlighted)
+        self.subParentView.layer.borderWidth = viewModel.setSubParentViewBorderWidth(isHighlighted: highlighted)
     }
     
     // MARK: - Helpers
     private func configure(){
         
-        let viewModel = StopListCellViewModel(route: route)
+        self.viewModel = StopListCellViewModel(route: route)
+        
+        guard let viewModel = self.viewModel else {return}
         
         self.accessoryType = viewModel.routePropertyIsHidden ? .none : .disclosureIndicator
         
@@ -96,11 +105,12 @@ class StopListTableViewCell: UITableViewCell {
         self.noBusLabel.isHidden = viewModel.noBusIsHidden
         self.busImage.isHidden = viewModel.routePropertyIsHidden
         self.nextBusLabelDeparture.text = viewModel.departureTimestampString
+        
         routeNameLabel.text = viewModel.routeName
         
         self.nextBusLabelDestination.text = viewModel.shapeDestination
-        self.nextBusLabelDeparture.textColor = viewModel.departureTimeColor(stop: viewModel.nextStop)
-        
+        self.nextBusLabelDeparture.textColor = viewModel.departureTimeColor
+        self.speedImage.isHidden = viewModel.departureIconVisibility
     }
     
     private func setupUI(){
@@ -113,8 +123,14 @@ class StopListTableViewCell: UITableViewCell {
         self.busImage.setDimensions(height: 30, width: 30)
         self.busImage.centerY(inView: self, leftAnchor: self.subParentView.leftAnchor, paddingLeft: 17)
         
-        let nextBusStack = UIStackView(arrangedSubviews: [ self.nextBusLabelDeparture, self.nextBusLabelDestination])
+        let timeStack = UIStackView(arrangedSubviews: [self.nextBusLabelDeparture, self.speedImage, UIView()])
+        timeStack.axis = .horizontal
+        timeStack.spacing = 5
+        self.speedImage.setDimensions(height: 15, width: 15)
+        
+        let nextBusStack = UIStackView(arrangedSubviews: [self.nextBusLabelDestination, timeStack])
         nextBusStack.axis = .vertical
+        nextBusStack.spacing = 5
         
         self.parentStack = UIStackView(arrangedSubviews: [self.routeNameLabel, nextBusStack])
         

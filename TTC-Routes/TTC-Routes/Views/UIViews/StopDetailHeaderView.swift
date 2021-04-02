@@ -11,13 +11,14 @@ class StopDetailHeaderView: UIView {
     // MARK: - Properties
     let logoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = #imageLiteral(resourceName: "ttc-logo")
+        imageView.image = #imageLiteral(resourceName: "ttc-logo-monza")
         return imageView
     }()
     
     let agencyLabel: HeaderLabel = {
         let label = HeaderLabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.textColor = .themeMonza
         return label
     }()
     

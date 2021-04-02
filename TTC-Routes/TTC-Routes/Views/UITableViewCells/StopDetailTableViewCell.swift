@@ -19,7 +19,7 @@ class StopDetailTableViewCell: UITableViewCell {
     
     private let subParentView: UIView = {
         let view = UIView()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .themeCosmos
         view.layer.cornerRadius = 10
         
         return view
@@ -45,18 +45,25 @@ class StopDetailTableViewCell: UITableViewCell {
         return StopDetailTimeLabel()
     }()
     
+    private let stopTimeStack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.spacing = 15
+        return stack
+    }()
+    
     
     private let clockImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "clock")
-        imageView.tintColor = .white
+        imageView.tintColor = .themeMonza
         return imageView
     }()
     
     private let pathImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "point.topleft.down.curvedto.point.bottomright.up")
-        imageView.tintColor = .white
+        imageView.tintColor = .themeMonza
         return imageView
     }()
     
@@ -112,13 +119,14 @@ class StopDetailTableViewCell: UITableViewCell {
         bottomHorizontalView.addSubview(self.clockImageView)
         self.clockImageView.setDimensions(height: 20, width: 20)
         self.clockImageView.centerY(inView: bottomHorizontalView, leftAnchor: bottomHorizontalView.leftAnchor)
+
+        self.stopTimeStack.addArrangedSubview(self.stopTimeALabel)
+        self.stopTimeStack.addArrangedSubview(self.stopTimeBLabel)
+        self.stopTimeStack.addArrangedSubview(self.stopTimeCLabel)
+        self.stopTimeStack.addArrangedSubview(UIView())
         
-        let stack  = UIStackView(arrangedSubviews: [self.stopTimeALabel, self.stopTimeBLabel, self.stopTimeCLabel, UIView()])
-        stack.axis = .horizontal
-        stack.spacing = 15
-        
-        bottomHorizontalView.addSubview(stack)
-        stack.anchor(top: bottomHorizontalView.topAnchor, left: self.clockImageView.rightAnchor, bottom: bottomHorizontalView.bottomAnchor, right: bottomHorizontalView.rightAnchor, paddingLeft: 5)
+        bottomHorizontalView.addSubview(self.stopTimeStack)
+        self.stopTimeStack.anchor(top: bottomHorizontalView.topAnchor, left: self.clockImageView.rightAnchor, bottom: bottomHorizontalView.bottomAnchor, right: bottomHorizontalView.rightAnchor, paddingLeft: 5)
     }
     
     private func configure(){
@@ -133,19 +141,9 @@ class StopDetailTableViewCell: UITableViewCell {
         self.destinationShapeLabel.text = viewModel.shapeDestination
         
         for index in 0..<viewModel.stopTimesCount {
-            switch index {
-            case 0:
-                stopTimeALabel.text = viewModel.timeStopOfIndex(index)
-                stopTimeALabel.textColor = viewModel.textColorOfIndex(index)
-            case 1:
-                stopTimeBLabel.text = viewModel.timeStopOfIndex(index)
-                stopTimeBLabel.textColor = viewModel.textColorOfIndex(index)
-            case 2:
-                stopTimeCLabel.text = viewModel.timeStopOfIndex(index)
-                stopTimeCLabel.textColor = viewModel.textColorOfIndex(index)
-                
-            default:
-                break;
+            if let label = stopTimeStack.arrangedSubviews[index] as? UILabel {
+                label.text = viewModel.timeStopOfIndex(index)
+                label.textColor = viewModel.textColorOfIndex(index)
             }
         }
     }

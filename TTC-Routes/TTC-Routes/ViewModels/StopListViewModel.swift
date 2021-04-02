@@ -52,7 +52,10 @@ extension StopListViewModel {
     }
     
     func numberOfRowsInSection(_ index:Int) -> Int {
-        return showAll ? stops[index].routes.count : filteredStops[index].routes.count
+        
+        let allCount = stops[index].routes.count == 0 ? 1 : stops[index].routes.count
+        
+        return showAll ? allCount : filteredStops[index].routes.count
     }
     
     func stopAtIndexPath(_ indexPath:IndexPath) -> Stop {

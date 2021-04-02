@@ -20,6 +20,7 @@ class SettingsViewCell: UITableViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.setDimensions(height: 28, width: 28)
+        imageView.tintColor = .themeMonza
         return imageView
     }()
     
@@ -38,12 +39,14 @@ class SettingsViewCell: UITableViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16)
+        label.textColor = .themeMonza
         return label
     }()
     
     private lazy var toggleSwitch: UISwitch = {
         let toggle = UISwitch()
         toggle.addTarget(self, action: #selector(switchToggleHandler(sender:)), for: .valueChanged)
+        toggle.onTintColor = .themeMonza
         return toggle
     }()
     
@@ -67,7 +70,7 @@ class SettingsViewCell: UITableViewCell {
     
     // MARK: - Helpers
     private func setupUI(){
-        self.backgroundColor = .lightGray
+        self.backgroundColor = .themeCosmos
         
         self.addSubview(self.iconView)
         self.iconView.centerY(inView: self,leftAnchor: self.leftAnchor, paddingLeft: 12)
