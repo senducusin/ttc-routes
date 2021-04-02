@@ -40,6 +40,8 @@ class SettingsController: UITableViewController {
         self.tableView.rowHeight = 64
         self.tableView.allowsSelection = false
         self.tableView.isUserInteractionEnabled = true
+        self.tableView.separatorColor = .themeMonza
+        self.tableView.separatorInset = .zero
     }
 }
 
