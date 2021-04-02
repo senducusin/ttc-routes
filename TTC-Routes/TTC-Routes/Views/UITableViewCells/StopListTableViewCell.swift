@@ -33,7 +33,7 @@ class StopListTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.italicSystemFont(ofSize: 14)
         label.textColor = .themeBrinkPink
-        label.text = "No available bus"
+        label.text = "No available trip"
         label.textAlignment = .center
         return label
     }()
