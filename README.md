@@ -9,24 +9,28 @@ This app does not use storyboards except in the launch screen.
 ## Features
 
 ### Loading Indicator  
-Displays a loading indicator when fetching from the API  
+- Displays a loading indicator when fetching from the API  
 ![](/Previews/first-fetch.png)  
 
 ### Main Page  
-The main page shows all the available stops for Finch station. By default, stops with no routes are hidden.  
+- The main page shows all the available stops for Finch station.  
+- By default, stops with no routes are hidden.  
+- A speedometer icon is displayed beside the departure time when the actual time is 10 minutes or less before the time departure.  
+- Date of the trip schedule is also displayed below the title bar.  
 ![](/Previews/stops-routes.png)  
 
 ### Pull to refresh  
-Table can be pulled down to fetch the latest trip schedule.  
+- Table can be pulled down to fetch the latest trip schedule.  
 ![](/Previews/pull-reload.png)  
 
 ### Detail View  
-When selecting a route, the app displays a detail view, showing all the available stops, route group ID, and the agency.  
+- When selecting a route; a detail view will show all available stops, route group ID, and the agency.  
 ![](/Previews/detail-view.png)  
 
 ### Settings
-In the Settings page, the user has the option to toggle and show all stops and or display a 24-hour time format instead of AM-PM format.  
-The Settings page can be accessed by tapping the gear icon on the upper-left corner of the main page.  
+- In the Settings page, the user has the option to toggle and show all stops and or display a 24-hour time format instead of the AM-PM format.  
+- The Settings page can be accessed by tapping the gear icon on the upper-left corner of the main page.  
+- All of the setitngs configuration are off by default.
 ![](/Previews/settings.png)  
 
 ---
