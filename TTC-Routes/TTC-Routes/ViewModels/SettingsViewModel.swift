@@ -20,7 +20,7 @@ enum SettingsViewModel: Int, CaseIterable{
     
     var iconImageName: String {
         switch self {
-        case .showAll: return "eye"
+        case .showAll: return "signpost.right"
         case .use24hFormat: return "timer"
         }
     }
