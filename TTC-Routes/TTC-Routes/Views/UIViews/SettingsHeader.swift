@@ -19,7 +19,6 @@ class SettingsHeader: UIView {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "gear")
         imageView.backgroundColor = .white
-        imageView.layer.cornerRadius = 77.5
         imageView.tintColor = .themeMonza
         return imageView
     }()
@@ -63,18 +62,34 @@ class SettingsHeader: UIView {
     // MARK: - Helper
     private func setupUI(){
         self.backgroundColor = .themeMonza
-        
+
+        self.setupDismissButton()
+        self.setupSettingsImage()
+        self.setupSettingsLabel()
+    
+    }
+    
+    private func setupSettingsLabel(){
+        addSubview(self.settingsLabel)
+        self.settingsLabel.centerX(inView: self)
+        self.settingsLabel.anchor(top:self.settingsImage.bottomAnchor, paddingTop:4)
+    }
+    
+    private func setupDismissButton(){
         addSubview(self.dismissButton)
         self.dismissButton.anchor(top:topAnchor, left: leftAnchor, paddingTop: 44, paddingLeft: 12)
         self.dismissButton.setDimensions(height: 48, width: 48)
-        
+    }
+    
+    private func setupSettingsImage(){
         addSubview(self.settingsImage)
-        self.settingsImage.setDimensions(height: 150, width: 160)
+        let settingsImgHeight = self.frame.height*0.372
+        let settingsImgWidth = self.frame.height*0.40
+        self.settingsImage.setDimensions(height: settingsImgHeight, width: settingsImgWidth)
+        let avgHeightWidth = (settingsImgHeight + settingsImgWidth)/2
+        self.settingsImage.layer.cornerRadius = avgHeightWidth/2
         self.settingsImage.centerX(inView: self)
         self.settingsImage.centerY(inView: self)
 
-        addSubview(self.settingsLabel)
-        self.settingsLabel.centerX(inView: self)
-        self.settingsLabel.anchor(top:self.settingsImage.bottomAnchor, paddingTop: 7)
     }
 }
