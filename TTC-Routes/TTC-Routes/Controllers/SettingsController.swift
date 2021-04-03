@@ -89,7 +89,6 @@ class SettingsController: UIViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
        
     }
     
@@ -97,22 +96,9 @@ class SettingsController: UIViewController {
         super.viewDidLayoutSubviews()
 
         self.setupUI()
-//        let settingsImageCornerRadius = ((settingsImage.frame.height + settingsImage.frame.width)/2)/2
-//
-//        if cornerRadiusLarge == 0 {
-//            cornerRadiusLarge = settingsImageCornerRadius
-//        }
-//
-//
-////        print("Debug CornerRadius: \(avgHeightWidth)")
-//        self.settingsImage.layer.cornerRadius = avgHeightWidth/2
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-//        super.viewWillTransition(to: size, with: coordinator)
-//
-//
-//        print("Debug CornerRadius: \(avgHeightWidth) \(settingsImage.frame.height) \(settingsImage.frame.width)")
     }
 
     

@@ -20,13 +20,17 @@ struct SettingsViewModel {
             cornerRadiusLarge = cornerRadius
         } else if cornerRadiusLarge > 0 && cornerRadiusSmall == 0 && rawCornerRadius != cornerRadiusLarge {
             cornerRadiusSmall = cornerRadius
+            
+            if cornerRadiusLarge < cornerRadiusSmall {
+                swap(&cornerRadiusSmall, &cornerRadiusLarge)
+            }
         }
 }
     
     var cornerRadius:CGFloat {
         if cornerRadiusSmall > 0 && cornerRadiusLarge > 0{
             switch UIDevice.current.orientation {
-            case .portrait:
+            case .portrait, .portraitUpsideDown:
                 return  cornerRadiusLarge
             case .landscapeLeft, .landscapeRight:
                 return cornerRadiusSmall

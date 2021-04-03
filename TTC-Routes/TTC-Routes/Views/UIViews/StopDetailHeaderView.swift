@@ -33,7 +33,6 @@ class StopDetailHeaderView: UIView {
     // MARK: - Lifecycle
     init(frame:CGRect, viewModel: StopDetailViewModel){
         super.init(frame: frame)
-        
         self.agencyLabel.text = (viewModel.stop.agency)
         self.stopNameLabel.text = (viewModel.stop.name)
         self.routeGroupIdLabel.text = "Route Group ID: \(viewModel.route.routeGroupId)"
@@ -48,22 +47,13 @@ class StopDetailHeaderView: UIView {
     }
     
     // MARK: - Helpers
+    
     private func setupUI(){
         
-        
         self.setupLogoImage()
-        
-        let stack = UIStackView(arrangedSubviews: [
-                                    self.agencyLabel,
-                                    self.stopNameLabel,
-                                    self.routeGroupIdLabel
-        ])
-        
-        self.addSubview(stack)
-        stack.anchor(top:self.logoImageView.bottomAnchor, left: self.leftAnchor, right: self.rightAnchor, paddingTop: 17)
-        
-        stack.axis = .vertical
-        stack.spacing = 6
+        self.setupAgencyLabel()
+        self.setupStopNameLabel()
+        self.setupRouteGroupIdLabel()
     }
     
     private func setupLogoImage(){
@@ -71,5 +61,23 @@ class StopDetailHeaderView: UIView {
         self.addSubview(self.logoImageView)
         self.logoImageView.centerX(inView: self)
         self.logoImageView.anchor(top:self.topAnchor, paddingTop: 17)
+    }
+    
+    func setupAgencyLabel() {
+        self.addSubview(self.agencyLabel)
+        self.agencyLabel.centerX(inView: self)
+        self.agencyLabel.anchor(top:self.logoImageView.bottomAnchor, paddingTop: 6)
+    }
+    
+    func setupStopNameLabel() {
+        self.addSubview(self.stopNameLabel)
+        self.stopNameLabel.centerX(inView: self)
+        self.stopNameLabel.anchor(top:self.agencyLabel.bottomAnchor, paddingTop: 6)
+    }
+    
+    func setupRouteGroupIdLabel() {
+        self.addSubview(self.routeGroupIdLabel)
+        self.routeGroupIdLabel.centerX(inView: self)
+        self.routeGroupIdLabel.anchor(top:self.stopNameLabel.bottomAnchor, paddingTop: 6)
     }
 }
