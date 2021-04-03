@@ -25,7 +25,7 @@ struct SettingsViewModel {
                 swap(&cornerRadiusSmall, &cornerRadiusLarge)
             }
         }
-}
+    }
     
     var cornerRadius:CGFloat {
         if cornerRadiusSmall > 0 && cornerRadiusLarge > 0{
@@ -34,12 +34,12 @@ struct SettingsViewModel {
                 return  cornerRadiusLarge
             case .landscapeLeft, .landscapeRight:
                 return cornerRadiusSmall
-           
+                
             default: break
             }
         }
         
         return rawCornerRadius
     }
-
+    
 }
