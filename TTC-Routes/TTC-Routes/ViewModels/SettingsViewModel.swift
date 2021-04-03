@@ -2,45 +2,40 @@
 //  SettingsViewModel.swift
 //  TTC-Routes
 //
-//  Created by Jansen Ducusin on 3/31/21.
+//  Created by Jansen Ducusin on 4/3/21.
 //
 
-import Foundation
+import UIKit
 
-enum SettingsViewModel: Int, CaseIterable{
-    case showAll
-    case use24hFormat
+struct SettingsViewModel {
     
-    var description: String{
-        switch self {
-        case .showAll: return "Show All Stops"
-        case .use24hFormat: return "24 Hours Time Format"
-        }
-    }
+    private var cornerRadiusLarge:CGFloat = 0
+    private var cornerRadiusSmall:CGFloat = 0
+    private var rawCornerRadius:CGFloat = 0
     
-    var iconImageName: String {
-        switch self {
-        case .showAll: return "signpost.right"
-        case .use24hFormat: return "timer"
-        }
-    }
-    
-    var userDefaultKeys: String {
-        switch self {
-        case .showAll: return USERDEFAULT_KEY_SHOW_ALL_STOPS
-        case .use24hFormat: return USERDEFAULT_KEY_USE_24H_TIME_FORMAT
-        }
-    }
-    
-    func toggleResponse(isOn: Bool){
-        let defaults = UserDefaults.standard
+    mutating func setRawCornerRadius(_ cornerRadius:CGFloat){
+        rawCornerRadius = cornerRadius
         
-        defaults.setValue(isOn, forKey: self.userDefaultKeys)
-    }
+        if cornerRadiusLarge == 0 && cornerRadiusSmall == 0 {
+            cornerRadiusLarge = cornerRadius
+        } else if cornerRadiusLarge > 0 && cornerRadiusSmall == 0 && rawCornerRadius != cornerRadiusLarge {
+            cornerRadiusSmall = cornerRadius
+        }
+}
     
-    var switchValue: Bool {
-        let defaults = UserDefaults.standard
+    var cornerRadius:CGFloat {
+        if cornerRadiusSmall > 0 && cornerRadiusLarge > 0{
+            switch UIDevice.current.orientation {
+            case .portrait:
+                return  cornerRadiusLarge
+            case .landscapeLeft, .landscapeRight:
+                return cornerRadiusSmall
+           
+            default: break
+            }
+        }
         
-        return defaults.bool(forKey: self.userDefaultKeys)
+        return rawCornerRadius
     }
+
 }

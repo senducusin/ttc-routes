@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A60165AD2616A9EE00777FEC /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60165AC2616A9EE00777FEC /* UIColor+Extensions.swift */; };
 		A60165B22616EC0700777FEC /* StopListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60165B12616EC0700777FEC /* StopListHeaderView.swift */; };
+		A63090A32618402C00C94EEA /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63090A22618402C00C94EEA /* SettingsViewModel.swift */; };
 		A6A6F0E32615574E0064662E /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6F0E22615574E0064662E /* SettingsViewCell.swift */; };
 		A6A6F0F0261571480064662E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6F0EF261571480064662E /* Constants.swift */; };
 		A6A6F0F826159B3F0064662E /* StopDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6F0F726159B3F0064662E /* StopDetailCellViewModel.swift */; };
@@ -35,12 +36,13 @@
 		A6B132C42614034000E14BA4 /* StopDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B132C32614034000E14BA4 /* StopDetailViewModel.swift */; };
 		A6B132C7261409BB00E14BA4 /* StopDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B132C6261409BB00E14BA4 /* StopDetailTableViewCell.swift */; };
 		A6B132DE2614657D00E14BA4 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B132DD2614657D00E14BA4 /* SettingsController.swift */; };
-		A6B132E42614853E00E14BA4 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B132E32614853E00E14BA4 /* SettingsViewModel.swift */; };
+		A6B132E42614853E00E14BA4 /* SettingsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B132E32614853E00E14BA4 /* SettingsCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A60165AC2616A9EE00777FEC /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		A60165B12616EC0700777FEC /* StopListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopListHeaderView.swift; sourceTree = "<group>"; };
+		A63090A22618402C00C94EEA /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		A6A6F0E22615574E0064662E /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
 		A6A6F0EF261571480064662E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A6A6F0F726159B3F0064662E /* StopDetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailCellViewModel.swift; sourceTree = "<group>"; };
@@ -69,7 +71,7 @@
 		A6B132C32614034000E14BA4 /* StopDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailViewModel.swift; sourceTree = "<group>"; };
 		A6B132C6261409BB00E14BA4 /* StopDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailTableViewCell.swift; sourceTree = "<group>"; };
 		A6B132DD2614657D00E14BA4 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
-		A6B132E32614853E00E14BA4 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		A6B132E32614853E00E14BA4 /* SettingsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,8 +202,9 @@
 				A6AA1A272612D68C00B5B722 /* StopListViewModel.swift */,
 				A6AA1A332613040E00B5B722 /* StopListCellViewModel.swift */,
 				A6B132C32614034000E14BA4 /* StopDetailViewModel.swift */,
-				A6B132E32614853E00E14BA4 /* SettingsViewModel.swift */,
+				A6B132E32614853E00E14BA4 /* SettingsCellViewModel.swift */,
 				A6A6F0F726159B3F0064662E /* StopDetailCellViewModel.swift */,
+				A63090A22618402C00C94EEA /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -308,10 +311,11 @@
 				A6B132DE2614657D00E14BA4 /* SettingsController.swift in Sources */,
 				A6B132C7261409BB00E14BA4 /* StopDetailTableViewCell.swift in Sources */,
 				A60165B22616EC0700777FEC /* StopListHeaderView.swift in Sources */,
-				A6B132E42614853E00E14BA4 /* SettingsViewModel.swift in Sources */,
+				A6B132E42614853E00E14BA4 /* SettingsCellViewModel.swift in Sources */,
 				A6AA1A342613040E00B5B722 /* StopListCellViewModel.swift in Sources */,
 				A6AA1A282612D68C00B5B722 /* StopListViewModel.swift in Sources */,
 				A6A6F0F826159B3F0064662E /* StopDetailCellViewModel.swift in Sources */,
+				A63090A32618402C00C94EEA /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

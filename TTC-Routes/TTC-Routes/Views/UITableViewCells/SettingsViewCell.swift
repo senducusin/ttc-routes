@@ -11,7 +11,7 @@ class SettingsViewCell: UITableViewCell {
     // MARK: - Properties
     static let cellIdentifier = "SettingsViewCell"
     
-    var viewModel: SettingsViewModel? {
+    var viewModel: SettingsCellViewModel? {
         didSet{ self.configure() }
     }
 

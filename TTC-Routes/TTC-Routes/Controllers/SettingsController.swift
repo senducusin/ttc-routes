@@ -9,6 +9,9 @@ import UIKit
 
 class SettingsController: UIViewController {
     // MARK: - Properties
+    
+    private var viewModel = SettingsViewModel()
+    
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.register(SettingsViewCell.self, forCellReuseIdentifier: SettingsViewCell.cellIdentifier)
@@ -87,20 +90,39 @@ class SettingsController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        self.setupUI()
-        
+       
     }
     
     override func viewDidLayoutSubviews() {
-        self.setupDismissButton()
-        self.setupSettingsImage()
-        self.setupSettingsLabel()
+        super.viewDidLayoutSubviews()
+
+        self.setupUI()
+//        let settingsImageCornerRadius = ((settingsImage.frame.height + settingsImage.frame.width)/2)/2
+//
+//        if cornerRadiusLarge == 0 {
+//            cornerRadiusLarge = settingsImageCornerRadius
+//        }
+//
+//
+////        print("Debug CornerRadius: \(avgHeightWidth)")
+//        self.settingsImage.layer.cornerRadius = avgHeightWidth/2
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+//        super.viewWillTransition(to: size, with: coordinator)
+//
+//
+//        print("Debug CornerRadius: \(avgHeightWidth) \(settingsImage.frame.height) \(settingsImage.frame.width)")
+    }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.navigationController?.navigationBar.isHidden = true
+        
+        let avgHeightWidth = (settingsImage.frame.height + settingsImage.frame.width)/2
+        
+        self.settingsImage.layer.cornerRadius = avgHeightWidth/2
     }
     
     // MARK: - Selectors
@@ -114,6 +136,10 @@ class SettingsController: UIViewController {
         
         self.setupHeaderView()
         self.setupTableViewContainer()
+    
+        self.setupDismissButton()
+        self.setupSettingsImage()
+        self.setupSettingsLabel()
     }
     
     private func setupHeaderView(){
@@ -175,8 +201,9 @@ class SettingsController: UIViewController {
         self.settingsImage.centerX(inView: self.headerView)
         self.settingsImage.centerY(inView: self.headerView)
         
-        let avgHeightWidth = (settingsImage.frame.height + settingsImage.frame.width)/2
-        self.settingsImage.layer.cornerRadius = avgHeightWidth/2
+        viewModel.setRawCornerRadius(((settingsImage.bounds.height + settingsImage.bounds.width)/2)/2)
+        
+        self.settingsImage.layer.cornerRadius = viewModel.cornerRadius
     }
 }
 
@@ -188,13 +215,13 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SettingsViewModel.allCases.count
+        return SettingsCellViewModel.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SettingsViewCell.cellIdentifier, for: indexPath) as! SettingsViewCell
         
-        cell.viewModel = SettingsViewModel(rawValue: indexPath.row)
+        cell.viewModel = SettingsCellViewModel(rawValue: indexPath.row)
         
         return cell
     }
