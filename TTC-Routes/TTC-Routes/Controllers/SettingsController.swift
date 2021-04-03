@@ -83,36 +83,12 @@ class SettingsController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        self.view.addSubview(self.headerView)
-        self.headerView.anchor(
-            top: self.view.topAnchor,
-            left: self.view.leftAnchor,
-            right: self.view.rightAnchor,
-            width: self.view.frame.width
-        )
-        self.headerView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.35).isActive = true
-//
-        self.view.addSubview(self.tableViewContainer)
-        self.tableViewContainer.anchor(
-            top: self.headerView.bottomAnchor,
-            left: self.view.leftAnchor,
-            bottom: self.view.bottomAnchor,
-            right: self.view.rightAnchor,
-            width: self.view.frame.width
-        )
+        self.setupUI()
         
-        self.tableViewContainer.addSubview(self.tableView)
-        self.tableView.anchor(
-            top: self.tableViewContainer.topAnchor,
-            left: self.tableViewContainer.leftAnchor,
-            right: self.tableViewContainer.rightAnchor)
-        
-        self.setupFooterView()
     }
     
     override func viewDidLayoutSubviews() {
@@ -133,9 +109,44 @@ class SettingsController: UIViewController {
     }
     
     // MARK: - Helpers
-    
-    private func setupFooterView(){
+    private func setupUI(){
+        self.view.backgroundColor = .white
         
+        self.setupHeaderView()
+        self.setupTableViewContainer()
+    }
+    
+    private func setupHeaderView(){
+        self.view.addSubview(self.headerView)
+        self.headerView.anchor(
+            top: self.view.topAnchor,
+            left: self.view.leftAnchor,
+            right: self.view.rightAnchor,
+            width: self.view.frame.width
+        )
+        self.headerView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.35).isActive = true
+    }
+    
+    private func setupTableViewContainer(){
+        self.view.addSubview(self.tableViewContainer)
+        self.tableViewContainer.anchor(
+            top: self.headerView.bottomAnchor,
+            left: self.view.leftAnchor,
+            bottom: self.view.bottomAnchor,
+            right: self.view.rightAnchor,
+            width: self.view.frame.width
+        )
+        
+        self.tableViewContainer.addSubview(self.tableView)
+        self.tableView.anchor(
+            top: self.tableViewContainer.topAnchor,
+            left: self.tableViewContainer.leftAnchor,
+            right: self.tableViewContainer.rightAnchor)
+        
+        self.setupFooterLabels()
+    }
+    
+    private func setupFooterLabels(){
         self.view.addSubview(self.authorLabel)
         self.authorLabel.anchor(left: self.view.leftAnchor, bottom: self.view.safeAreaLayoutGuide.bottomAnchor, right: self.view.rightAnchor, paddingBottom: 10)
         
@@ -151,7 +162,7 @@ class SettingsController: UIViewController {
     
     private func setupDismissButton(){
         self.headerView.addSubview(self.dismissButton)
-        self.dismissButton.anchor(top: self.headerView.topAnchor, left: self.headerView.leftAnchor, paddingTop: 24, paddingLeft: 12)
+        self.dismissButton.anchor(top: self.view.safeAreaLayoutGuide.topAnchor, left: self.headerView.leftAnchor, paddingLeft: 12)
         self.dismissButton.setDimensions(height: 48, width: 48)
     }
     
@@ -169,6 +180,7 @@ class SettingsController: UIViewController {
     }
 }
 
+// MARK: UITableView Data Source and Delegate
 extension SettingsController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
