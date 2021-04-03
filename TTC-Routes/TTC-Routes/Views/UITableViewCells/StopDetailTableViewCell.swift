@@ -52,7 +52,6 @@ class StopDetailTableViewCell: UITableViewCell {
         return stack
     }()
     
-    
     private let clockImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "clock")
@@ -65,6 +64,16 @@ class StopDetailTableViewCell: UITableViewCell {
         imageView.image = UIImage(systemName: "point.topleft.down.curvedto.point.bottomright.up")
         imageView.tintColor = .themeMonza
         return imageView
+    }()
+    
+    private let topHorizontalView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    private let bottomHorizontalView: UIView = {
+        let view = UIView()
+        return view
     }()
     
     static let cellIdentifier = "StopDetailTableViewCell"
@@ -97,35 +106,48 @@ class StopDetailTableViewCell: UITableViewCell {
         )
         
         // Contains the path icon, origin, and destination
-        let topHorizontalView = UIView()
-        self.subParentView.addSubview(topHorizontalView)
-        topHorizontalView.anchor(top: subParentView.topAnchor, left: subParentView.leftAnchor, right: subParentView.rightAnchor, paddingTop: 10, paddingLeft: 10, paddingRight: 10, height: 44)
+        self.setupTopHorizontalView()
         
-        topHorizontalView.addSubview(self.pathImageView)
-        self.pathImageView.centerY(inView: topHorizontalView, leftAnchor: topHorizontalView.leftAnchor)
+        // Contains the clock icon, and timeStops
+        self.setupBottomHorizontalView()
+    }
+    
+    private func setupTopHorizontalView(){
+        self.subParentView.addSubview(self.topHorizontalView)
+        self.topHorizontalView.anchor(top: subParentView.topAnchor, left: subParentView.leftAnchor, right: subParentView.rightAnchor, paddingTop: 10, paddingLeft: 10, paddingRight: 10, height: 44)
+        
+        self.topHorizontalView.addSubview(self.pathImageView)
+        self.pathImageView.centerY(inView: self.topHorizontalView, leftAnchor: self.topHorizontalView.leftAnchor)
         self.pathImageView.setDimensions(height: 24, width: 20)
         
+        self.setupStackShapes()
+    }
+    
+    private func setupStackShapes(){
         let stackShapes = UIStackView(arrangedSubviews: [self.originShapeLabel, self.destinationShapeLabel])
         stackShapes.axis = .vertical
         
-        topHorizontalView.addSubview(stackShapes)
+        self.topHorizontalView.addSubview(stackShapes)
         stackShapes.anchor(
-            top: topHorizontalView.topAnchor,
+            top: self.topHorizontalView.topAnchor,
             left: self.pathImageView.rightAnchor,
-            bottom: topHorizontalView.bottomAnchor,
-            right: topHorizontalView.rightAnchor, paddingLeft: 5, paddingBottom: 5)
+            bottom: self.topHorizontalView.bottomAnchor,
+            right: self.topHorizontalView.rightAnchor, paddingLeft: 5, paddingBottom: 5)
+    }
+    
+    private func setupBottomHorizontalView(){
+        self.subParentView.addSubview(self.bottomHorizontalView)
+        self.bottomHorizontalView.anchor(top: self.topHorizontalView.bottomAnchor, left: subParentView.leftAnchor, bottom: subParentView.bottomAnchor, right: subParentView.rightAnchor, paddingTop: 5, paddingLeft: 10, paddingBottom: 10, paddingRight: 10, height: self.frame.height/2)
         
-        
-        // Contains the clock icon, and timeStops
-        let bottomHorizontalView = UIView()
-        self.subParentView.addSubview(bottomHorizontalView)
-        bottomHorizontalView.anchor(top: topHorizontalView.bottomAnchor, left: subParentView.leftAnchor, bottom: subParentView.bottomAnchor, right: subParentView.rightAnchor, paddingTop: 5, paddingLeft: 10, paddingBottom: 10, paddingRight: 10, height: self.frame.height/2)
-        
-        bottomHorizontalView.addSubview(self.clockImageView)
+        self.bottomHorizontalView.addSubview(self.clockImageView)
         self.clockImageView.setDimensions(height: 20, width: 20)
-        self.clockImageView.centerY(inView: bottomHorizontalView, leftAnchor: bottomHorizontalView.leftAnchor)
+        self.clockImageView.centerY(inView: self.bottomHorizontalView, leftAnchor: self.bottomHorizontalView.leftAnchor)
 
         // Takes away the messy handling off adding arrangedSubview in a reusable cell
+        self.setupStopTimeStack()
+    }
+    
+    private func setupStopTimeStack(){
         self.stopTimeStack.addArrangedSubview(self.stopTimeALabel)
         self.stopTimeStack.addArrangedSubview(self.stopTimeBLabel)
         self.stopTimeStack.addArrangedSubview(self.stopTimeCLabel)
@@ -133,8 +155,8 @@ class StopDetailTableViewCell: UITableViewCell {
         // Spacer
         self.stopTimeStack.addArrangedSubview(UIView())
         
-        bottomHorizontalView.addSubview(self.stopTimeStack)
-        self.stopTimeStack.anchor(top: bottomHorizontalView.topAnchor, left: self.clockImageView.rightAnchor, bottom: bottomHorizontalView.bottomAnchor, right: bottomHorizontalView.rightAnchor, paddingLeft: 5)
+        self.bottomHorizontalView.addSubview(self.stopTimeStack)
+        self.stopTimeStack.anchor(top: self.bottomHorizontalView.topAnchor, left: self.clockImageView.rightAnchor, bottom: self.bottomHorizontalView.bottomAnchor, right: self.bottomHorizontalView.rightAnchor, paddingLeft: 5)
     }
     
     private func configure(){

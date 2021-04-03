@@ -83,11 +83,13 @@ class SettingsHeader: UIView {
     
     private func setupSettingsImage(){
         addSubview(self.settingsImage)
-        let settingsImgHeight = self.frame.height*0.372
-        let settingsImgWidth = self.frame.height*0.40
-        self.settingsImage.setDimensions(height: settingsImgHeight, width: settingsImgWidth)
-        let avgHeightWidth = (settingsImgHeight + settingsImgWidth)/2
+        
+        self.settingsImage.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.3722).isActive = true
+        self.settingsImage.widthAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.3970).isActive = true
+        
+        let avgHeightWidth = (settingsImage.frame.height + settingsImage.frame.width)/2
         self.settingsImage.layer.cornerRadius = avgHeightWidth/2
+        
         self.settingsImage.centerX(inView: self)
         self.settingsImage.centerY(inView: self)
 
