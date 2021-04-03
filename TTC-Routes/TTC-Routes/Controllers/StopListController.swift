@@ -68,7 +68,7 @@ class StopListController: UITableViewController {
     }
     
     @objc func settingsDidTap(){
-        let controller = SettingsController(style: .insetGrouped)
+        let controller = SettingsController()
         let nav = UINavigationController(rootViewController: controller)
         
         nav.modalPresentationStyle = .fullScreen
