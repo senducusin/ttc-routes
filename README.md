@@ -34,6 +34,7 @@ This app does not use storyboards except in the launch screen.
 - In the Settings page, the user has the option to toggle and show all stops and or display a 24-hour time format instead of the AM-PM format.  
 - The Settings page can be accessed by tapping the gear icon on the upper-left corner of the main page.  
 - All of the setitngs configuration are off by default.  
+- Configurations are changeable and will persist the set value.  
 ![](/Previews/settings.png)  
 
 ---
